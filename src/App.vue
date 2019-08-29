@@ -1,20 +1,44 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <NavPanel id="nav-panel"/>
+    <router-view id="router-view"/>
   </div>
 </template>
 
+<script>
+import NavPanel from '@/components/NavPanel.vue'
+
+export default {
+  name: 'home',
+  components: {
+    NavPanel
+  }
+}
+
+</script>
+
 <style>
+* {
+  margin: 0;
+}
 #app {
+  height: 100vh;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  background: #05386B;
+}
+#nav-panel {
+  flex: 1 1 50%;
+}
+#router-view {
+  height: calx(100vh - 60px);
+  box-shadow: 0px 3px 6px 3px rgba(0,0,0,.2);
+  padding: 20px;
+  flex: 1 1 50%;
+  background: white;
+  margin: 30px 20px;
+  border-radius: 10px;
 }
 </style>
