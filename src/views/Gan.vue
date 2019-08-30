@@ -1,6 +1,6 @@
 <template>
-  <div class="age">
+  <div class="gan">
     <router-link to="/">x</router-link>
-    <h1>AGE PAGE</h1>
+    <h1>GAN PAGE</h1>
   </div>
 </template>
