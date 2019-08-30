@@ -4,32 +4,37 @@ appData.categories = [
   {
     name: "Computer Vision",
     description: "Model that predicts a person’s age based off an uploaded photo",
-    link: `/vision`,
-    logo: "Eye"
+    link: "/vision",
+    logo: "Eye",
+    class: "vision"
   },
   {
     name: "NLP/NLU",
     description: "Model that predicts a person’s age based off an uploaded photo",
-    link: `/nlp`,
-    logo: "Graph"
+    link: "/nlp",
+    logo: "Graph",
+    class: "nlp"
   },
   {
     name: "GAN",
     description: "Model that predicts a person’s age based off an uploaded photo",
-    link: `/gan`,
-    logo: "Person"
+    link: "/gan",
+    logo: "Person",
+    class: "gan"
   },
   {
     name: "Tabular",
     description: "Model that predicts a person’s age based off an uploaded photo",
-    link: `/tabular`,
-    logo: "Thumb"
+    link: "/tabular",
+    logo: "Thumb",
+    class: "tabular"
   },
   {
     name: "Healthcare",
     description: "Model that predicts a person’s age based off an uploaded photo",
-    link: `/healthcare`,
-    logo: "Thumb"
+    link: "/healthcare",
+    logo: "Thumb",
+    class: "healthcare"
   }
 ];
 
