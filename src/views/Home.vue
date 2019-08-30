@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Welcome/>
+    <Welcome :reasons="reasons"/>
   </div>
 </template>
 
@@ -12,6 +12,9 @@ export default {
   name: 'home',
   components: {
     Welcome
+  },
+  props: {
+    reasons: Array
   }
 }
 </script>
