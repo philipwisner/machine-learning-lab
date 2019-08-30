@@ -1,10 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import Age from "./views/Age.vue";
-import Vision from "./views/Vision.vue";
-import Life from "./views/Life.vue";
-import Recommend from "./views/Recommend.vue";
+import Vision from "./views/Vision.vue"
+import Nlp from "./views/Nlp.vue";;
+import Gan from "./views/Gan.vue";
+import Tabular from "./views/Tabular.vue";
+import Healthcare from "./views/Healthcare.vue";
+
 
 Vue.use(Router)
 
@@ -16,24 +18,29 @@ export default new Router({
       component: Home
     },
     {
-      path: "/age",
-      name: "age",
-      component: Age
-    },
-    {
       path: "/vision",
       name: "vision",
-      component: Vision
+      component: Vision,
     },
     {
-      path: "/life",
-      name: "life",
-      component: Life
+      path: "/nlp",
+      name: "nlp",
+      component: Nlp
     },
     {
-      path: "/recommend",
-      name: "recommend",
-      component: Recommend
+      path: "/gan",
+      name: "gan",
+      component: Gan
+    },
+    {
+      path: "/tabular",
+      name: "tabular",
+      component: Tabular
+    },
+    {
+      path: "/healthcare",
+      name: "healthcare",
+      component: Healthcare
     }
   ]
 });
