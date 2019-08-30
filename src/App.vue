@@ -1,17 +1,25 @@
 <template>
   <div id="app">
-    <NavPanel id="nav-panel"/>
-    <router-view id="router-view"/>
+    <NavPanel id="nav-panel" :categories="categories"/>
+    <router-view id="router-view" :reasons="reasons"/>
   </div>
 </template>
 
 <script>
 import NavPanel from '@/components/NavPanel.vue'
+import appData from './data'
+
 
 export default {
   name: 'home',
   components: {
     NavPanel
+  },
+  data () {
+    return {
+      categories: appData.categories,
+      reasons: appData.reasons,
+    }
   }
 }
 
