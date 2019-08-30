@@ -25,22 +25,8 @@
 <script>
 export default {
   name: 'Welcome',
-  data() {
-    return {
-    reasons: [
-      {
-        heading: 'Sample Reason 1',
-        content: 'Ut iaculis ligula mauris, ac porttitor tellus vehicula semper.'
-      },
-      {
-        heading: 'Sample Reason 2',
-        content: 'Ut iaculis ligula mauris, ac porttitor tellus vehicula semper.'
-      },
-      {
-        heading: 'Sample Reason 3',
-        content: 'Ut iaculis ligula mauris, ac porttitor tellus vehicula semper.'
-      }]
-    }
+  props: {
+    reasons: Array,
   }
 }
 </script>
