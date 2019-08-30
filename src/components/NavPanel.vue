@@ -3,20 +3,23 @@
     <img class="logo" src="../assets/logo.svg" alt="logo">
     <div class="title-container">
       <h1 class="title-name">Machine Learning Lab</h1>
-      <p class="title-subtext">Welcome to Jefferson’s Machine Learning Playground</p>
-
+      <p class="title-subtext">Welcome to the Machine Learning Playground</p>
     </div>
-
-    <router-link to="/age">Age</router-link> |
-    <router-link to="/vision">Vision</router-link> |
-    <router-link to="/life">Life</router-link> |
-    <router-link to="/recommend">Recommend</router-link>
+    <CategoryList :categories="categories" class="category-list"/>
   </div>
 </template>
 
 <script>
+import CategoryList from '@/components/CategoryList.vue'
+
 export default {
   name: 'NavPanel',
+  components: {
+    CategoryList
+  },
+  props: {
+    categories: Array
+  }
 }
 </script>
 
@@ -31,8 +34,7 @@ export default {
   left: 20px;
 }
 .title-container {
-  border: 1px solid white;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 .title-name {
   color: white;
