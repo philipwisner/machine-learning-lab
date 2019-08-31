@@ -1,5 +1,5 @@
 <template>
-  <div class="category" :class="category.class" @click="updateRoute(category.link)">
+  <div class="category" :class="[category.class, {'selected': $route.path == category.link}]" @click="updateRoute(category.link)">
       <h4>{{category.name}}</h4>
       <p>{{category.description}}</p>
     </div>
@@ -28,6 +28,11 @@ export default {
   border-radius: 5px;
   padding: 20px;
   cursor: pointer;
+  transform: scale(.98);
+  transition: all .05s ease-in-out;
+}
+.category:hover {
+  transform: scale(1);
 }
 .category-box {
   border: 1px solid white;
@@ -57,5 +62,8 @@ p {
 }
 .healthcare {
   background: linear-gradient(to bottom right, #FF2F27, #FD6161);
+}
+.selected {
+  transform: scale(1);
 }
 </style>
