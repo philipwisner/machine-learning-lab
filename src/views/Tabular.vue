@@ -1,6 +1,16 @@
 <template>
   <div class="tabular">
-    <router-link to="/">x</router-link>
+    <CloseButton/>
     <h1>TABULAR PAGE</h1>
   </div>
 </template>
+
+<script>
+import CloseButton from '@/components/CloseButton.vue'
+
+export default {
+  components: {
+    CloseButton
+  }
+}
+</script>

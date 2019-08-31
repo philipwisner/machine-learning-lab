@@ -1,6 +1,16 @@
 <template>
   <div class="healthcare">
-    <router-link to="/">x</router-link>
-    <h1>Healthcare PAGE</h1>
+    <CloseButton/>
+    <h1>HEALTHCARE PAGE</h1>
   </div>
 </template>
+
+<script>
+import CloseButton from '@/components/CloseButton.vue'
+
+export default {
+  components: {
+    CloseButton
+  }
+}
+</script>

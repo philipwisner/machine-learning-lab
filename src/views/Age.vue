@@ -1,6 +1,0 @@
-<template>
-  <div class="age">
-    <router-link to="/">x</router-link>
-    <h1>AGE PAGE</h1>
-  </div>
-</template>

@@ -1,6 +1,16 @@
 <template>
   <div class="gan">
-    <router-link to="/">x</router-link>
+    <CloseButton/>
     <h1>GAN PAGE</h1>
   </div>
 </template>
+
+<script>
+import CloseButton from '@/components/CloseButton.vue'
+
+export default {
+  components: {
+    CloseButton
+  }
+}
+</script>
