@@ -26,8 +26,8 @@
 
 
 <script>
-import CloseButton from '@/components/CloseButton.vue';
-import BackButton from '@/components/BackButton.vue';
+import CloseButton from '@/components/Reusable/CloseButton.vue';
+import BackButton from '@/components/Reusable/BackButton.vue';
 
 
 export default {

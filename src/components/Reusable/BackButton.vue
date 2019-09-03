@@ -1,7 +1,7 @@
 <template>
   <div class="back-button">
     <button @click="goBack(path)">
-      <img src="../assets/back.svg" alt="back">
+      <img src="../../assets/back.svg" alt="back">
     </button>
   </div>
 </template>

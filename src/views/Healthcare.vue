@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import CloseButton from '@/components/CloseButton.vue'
+import CloseButton from '@/components/Reusable/CloseButton.vue'
 
 export default {
   components: {

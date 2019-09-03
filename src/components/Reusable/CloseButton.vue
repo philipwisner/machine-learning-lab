@@ -1,7 +1,7 @@
 <template>
   <div class="close-button">
     <button @click="goToHome">
-      <img src="../assets/close.svg" alt="close">
+      <img src="../../assets/close.svg" alt="close">
     </button>
   </div>
 </template>
