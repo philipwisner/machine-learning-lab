@@ -3,35 +3,40 @@ const appData = {};
 appData.categories = [
   {
     name: "Computer Vision",
-    description: "Model that predicts a person’s age based off an uploaded photo",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sapien quam, efficitur sed nibh tempus.",
     link: "/vision",
     logo: "Eye",
     class: "vision"
   },
   {
     name: "NLP/NLU",
-    description: "Model that predicts a person’s age based off an uploaded photo",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sapien quam, efficitur sed nibh tempus.",
     link: "/nlp",
     logo: "Graph",
     class: "nlp"
   },
   {
     name: "GAN",
-    description: "Model that predicts a person’s age based off an uploaded photo",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sapien quam, efficitur sed nibh tempus.",
     link: "/gan",
     logo: "Person",
     class: "gan"
   },
   {
     name: "Tabular",
-    description: "Model that predicts a person’s age based off an uploaded photo",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sapien quam, efficitur sed nibh tempus.",
     link: "/tabular",
     logo: "Thumb",
     class: "tabular"
   },
   {
     name: "Healthcare",
-    description: "Model that predicts a person’s age based off an uploaded photo",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sapien quam, efficitur sed nibh tempus.",
     link: "/healthcare",
     logo: "Thumb",
     class: "healthcare"
