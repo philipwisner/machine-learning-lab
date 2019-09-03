@@ -8,14 +8,14 @@
       <div class="app-list-container" v-if="$route.path == path">
         <h3>{{name}} Apps <span class="count">{{count}}</span></h3>
         <div class="app-list">
-          <router-link to="vision/bearimages" class="app">
-            <h4>Bear Image App</h4>
+          <router-link to="tabular/tabularchild" class="app">
+            <h4 class="app-name">Tabular Child App</h4>
           </router-link>
           <router-link to="vision/bearimages" class="app">
-           <h4>Sample App 2</h4>
+           <h4 class="app-name">Sample App 2</h4>
           </router-link>
           <router-link to="vision/bearimages" class="app">
-            <h4>Sample App 3</h4>
+            <h4 class="app-name">Sample App 3</h4>
           </router-link>
         </div>
       </div>
@@ -62,10 +62,6 @@ h1 a {
 h3 {
   color: $color;
   margin-bottom: 15px;
-}
-h4 {
-  color: $color;
-  text-decoration: none;
 }
 .count {
   font-weight: 400;
