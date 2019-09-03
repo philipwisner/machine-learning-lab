@@ -1,12 +1,12 @@
 <template>
   <div class="nlp-container">
-    <BackButton :path=path v-if="$route.path != '/nlp'"/>
+    <BackButton :path=path v-if="$route.path != path"/>
     <CloseButton/>
     <div class="category-content">
-      <h1> <router-link to="/nlp">Natural Language Processing</router-link></h1>
-      <p class="description" v-if="$route.path == '/nlp'">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sapien quam, efficitur sed nibh tempus, efficitur iaculis lacus. Curabitur ut hendrerit velit. Ut iaculis ligula mauris, ac porttitor tellus vehicula semper. Nam vitae risus lectus. Nam pellentesque sit amet dui sit amet vehicula.</p>
-      <div class="app-list-container" v-if="$route.path == '/nlp'">
-        <h3>NLP Apps <span class="count">4</span></h3>
+      <h1> <router-link :to="path">{{name}}</router-link></h1>
+      <p class="description" v-if="$route.path == path">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sapien quam, efficitur sed nibh tempus, efficitur iaculis lacus. Curabitur ut hendrerit velit. Ut iaculis ligula mauris, ac porttitor tellus vehicula semper. Nam vitae risus lectus. Nam pellentesque sit amet dui sit amet vehicula.</p>
+      <div class="app-list-container" v-if="$route.path == path">
+        <h3>{{name}} Apps <span class="count">{{count}}</span></h3>
         <div class="app-list">
           <router-link to="vision/bearimages" class="app">
              <h4>Bear Image App</h4>
@@ -37,42 +37,33 @@ export default {
   },
   data() {
     return {
-      pictureResult: '',
-      picturePreview: null,
-      path: '/vision'
+      name: 'Natural Language Processing/Understanding',
+      path: '/nlp',
+      count: 4,
     }
   },
-  methods: {
-    imageUploaded(event) {
-      this.picturePreview = event.target.files[0];
-      //console.log('pic', this.picturePreview);
-    },
-    analyzeImage() {
-      //DO POST TO localhost:3000/analyze
-      this.pictureResult = 'hi'
-    }
-  }
-
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+$color: #0099FF;
+
 h1 a {
   margin-bottom: 20px;
-  color: #0099FF;
+  color: $color;
   text-decoration: none;
   display: block;
 }
 h3 {
-  color: #0099FF;
+  color: $color;
   margin-bottom: 15px;
 }
 h4 {
-  color: #0099FF;
+  color: $color;
   text-decoration: none;
 }
 .count {
-  color: #93C8FF;
+  font-weight: 400;
 }
 </style>
 
