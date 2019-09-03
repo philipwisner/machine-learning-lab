@@ -34,7 +34,8 @@ export default {
   left: 20px;
 }
 .title-container {
-  margin-top: 20px;
+  margin-top: 0px;
+  margin-bottom: 40px;
 }
 .title-name {
   color: white;
