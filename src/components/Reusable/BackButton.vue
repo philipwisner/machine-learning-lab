@@ -23,6 +23,7 @@ export default {
 <style scoped>
 
 button {
+  position: fixed;
   float: left;
   border: none;
   background: none;
