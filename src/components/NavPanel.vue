@@ -1,6 +1,6 @@
 <template>
   <div class="nav-panel">
-    <img class="logo" src="../assets/logo.svg" alt="logo">
+    <img class="logo" src="../assets/logo-main.svg" alt="logo">
     <div class="title-container">
       <h1 class="title-name">Machine Learning Lab</h1>
       <p class="title-subtext">Welcome to the Machine Learning Playground</p>
