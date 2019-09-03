@@ -1,56 +1,76 @@
 <template>
   <div class="bear-app">
     <h3>Classify Bear Images 🐻</h3>
-    <p class="description">Upload images of teddy bears, black bears, grizzly bears, or all three and our model will tell you which one you uploaded.</p>
+    <p
+      class="description"
+    >Upload images of teddy bears, black bears, grizzly bears, or all three and our model will tell you which one you uploaded.</p>
     <div class="image-upload">
       <p class="upload-image-header">Upload Image</p>
-      <input type="file" name="pic" accept="image/*" @change="imageUploaded">
+      <input type="file" name="pic" accept="image/*" @change="imageUploaded" />
     </div>
     <div class="image-preview">
       <div v-if="!picturePreview" class="dummy-image"></div>
-      <img id="output-image"/>
+      <img id="output-image" />
     </div>
     <div class="results-container">
       <p class="result-header">RESULTS</p>
       <p class="results">{{pictureResult}}</p>
     </div>
     <button @click="analyzeImage">Analyze</button>
+    <p class="error" v-if="error">{{error}}</p>
   </div>
 </template>
 
 
 <script>
 export default {
-  name: 'BearImages',
+  name: "BearImages",
   data() {
     return {
-      pictureResult: 'None',
+      pictureResult: "None",
       picturePreview: false,
-    }
+      selectedFile: null,
+      analyzing: false,
+      error: null,
+    };
   },
   methods: {
     imageUploaded(event) {
-      console.log('event', event);
+      this.error = null;
       var reader = new FileReader();
       reader.onload = function() {
-        var output = document.getElementById('output-image');
+        var output = document.getElementById("output-image");
         output.src = reader.result;
-      }
+      };
       reader.readAsDataURL(event.target.files[0]);
+      this.selectedFile = event.target.files[0];
       this.picturePreview = true;
     },
-    analyzeImage() {
-      //DO POST TO localhost:3000/analyze
-      this.pictureResult = 'Teddy Bear';
-    },
+    async analyzeImage() {
+      if (this.selectedFile) {
+        const formData = new FormData();
+        formData.append('myFile', this.selectedFile, this.selectedFile.name)
+        try {
+          this.pictureResult = '...';
+          const response = await this.axios.post("http://localhost:3000/analyze", formData);
+          console.log('response from api is', response);
+          this.pictureResult = response;
+          this.analyzing = false;
+        } catch (error) {
+          console.error(error);
+          this.error = error;
+        }
+      } else {
+        this.error = 'Please select a file'
+      }
+    }
   }
-
-}
+};
 </script>
 
 <style scoped>
 h3 {
-  color: #34D671;
+  color: #34d671;
   margin-bottom: 20px;
 }
 .bear-app {
@@ -72,8 +92,8 @@ h3 {
 }
 .dummy-image {
   max-width: 500px;
-  background: #BFBFBF;
-  opacity: .30;
+  background: #bfbfbf;
+  opacity: 0.3;
   height: 250px;
 }
 #output-image {
@@ -85,7 +105,7 @@ h3 {
   height: 60px;
 }
 .result-header {
-  color: #BFBFBF;
+  color: #bfbfbf;
   font-weight: 700;
   font-size: 15px;
 }
@@ -94,10 +114,14 @@ h3 {
   font-size: 28px;
   font-weight: 500;
 }
-button {
+.error {
   margin-top: 20px;
+  color: red;
+}
+button {
+  margin-top: 10px;
   color: white;
-  background: #34D671;
+  background: #34d671;
   border: none;
   border-radius: 3px;
   padding: 8px 25px;
@@ -105,7 +129,7 @@ button {
   font-size: 14px;
 }
 button:hover {
-  box-shadow: 0px 3px 6px rgba(0,0,0,.16);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
   background: rgb(61, 245, 131);
 }
 </style>
