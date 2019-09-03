@@ -1,5 +1,6 @@
 <template>
   <div class="vision-container">
+    <BackButton :path=path v-if="$route.path != '/vision'"/>
     <CloseButton/>
     <div class="vision-content">
       <h1> <router-link to="/vision">Computer Vision</router-link></h1>
@@ -7,29 +8,39 @@
       <div class="app-list-container" v-if="$route.path == '/vision'">
         <h3> Computer Vision Apps <span class="count">4</span></h3>
         <div class="app-list">
-          <router-link to="vision/bearimages" class="app">Bear Image App</router-link>
-          <router-link to="vision/bearimages" class="app">Sample App 2</router-link>
-          <router-link to="vision/bearimages" class="app">Sample App 3</router-link>
+          <router-link to="vision/bearimages" class="app">
+             <h4>Bear Image App</h4>
+          </router-link>
+          <router-link to="vision/bearimages" class="app">
+           <h4>Sample App 2</h4>
+          </router-link>
+          <router-link to="vision/bearimages" class="app">
+            <h4>Sample App 3</h4>
+          </router-link>
         </div>
       </div>
-      <router-view class="app-content"></router-view>
+      <router-view class="app-outlet"></router-view>
     </div>
   </div>
 </template>
 
 
 <script>
-import CloseButton from '@/components/CloseButton.vue'
+import CloseButton from '@/components/CloseButton.vue';
+import BackButton from '@/components/BackButton.vue';
+
 
 export default {
   name: 'Vision',
     components: {
     CloseButton,
+    BackButton,
   },
   data() {
     return {
       pictureResult: '',
       picturePreview: null,
+      path: '/vision'
     }
   },
   methods: {
@@ -49,7 +60,6 @@ export default {
 <style scoped>
 .vision-content {
   padding: 5%;
-  border: 1px solid red;
 }
 h1 a {
   margin-bottom: 20px;
@@ -61,6 +71,10 @@ h3 {
   color: #34D671;
   margin-bottom: 15px;
   font-size: 22px;
+}
+h4 {
+  color: #34D671;
+  text-decoration: none;
 }
 .computer-vision {
   padding: 0 20px;
@@ -74,21 +88,21 @@ h3 {
   color:  rgb(113, 255, 168);
 }
 .app-list-container {
-  border: 1px solid blue;
   margin-top: 60px;
 }
 .app-list {
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid red;
 }
 .app {
   flex: 1 1 100%;
-  border: 1px solid grey;
+  border: 1px solid #BFBFBF;
   border-radius: 3px;
   margin-bottom: 10px;
+  padding: 40px 20px;
+  text-decoration: none;
 }
-.app-content {
-  border: 1px solid red;
+.app-outlet {
+  border: 1px solid orange;
 }
 </style>
