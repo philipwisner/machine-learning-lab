@@ -48,5 +48,6 @@ export default {
   background: white;
   margin: 30px 20px;
   border-radius: 10px;
+  overflow-y: auto;
 }
 </style>
