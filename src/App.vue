@@ -25,7 +25,14 @@ export default {
 
 </script>
 
-<style>
+<style lang="scss">
+
+$background-main: #05386B;
+$box-shadow: 0px 3px 6px 3px rgba(0,0,0,.2);
+$dark-font: #242424;
+$light-font: #808080;
+$border-color: #BFBFBF;
+
 * {
   margin: 0;
 }
@@ -35,14 +42,13 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: flex;
-  background: #05386B;
+  background: $background-main;
 }
 #nav-panel {
   flex: 1 1 50%;
 }
 #router-view {
-  height: calx(100vh - 60px);
-  box-shadow: 0px 3px 6px 3px rgba(0,0,0,.2);
+  box-shadow: $box-shadow;
   padding: 20px;
   flex: 1 1 50%;
   background: white;
@@ -72,7 +78,7 @@ button:focus {
 }
 .app {
   flex: 1 1 100%;
-  border: 1px solid #BFBFBF;
+  border: 1px solid $border-color;
   border-radius: 3px;
   margin-bottom: 10px;
   padding: 40px 20px;
@@ -87,5 +93,10 @@ button:focus {
 .count {
   font-size: 16px;
   margin-left: 5px;
+  color: $light-font;
+}
+.app-name {
+  color: $dark-font;
+  text-decoration: none;
 }
 </style>
