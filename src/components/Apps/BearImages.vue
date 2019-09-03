@@ -13,10 +13,8 @@
 
 
 <script>
-import CloseButton from '@/components/CloseButton.vue'
-
 export default {
-  name: 'BearVision',
+  name: 'BearImages',
   data() {
     return {
       pictureResult: '',
@@ -25,8 +23,8 @@ export default {
   },
   methods: {
     imageUploaded(event) {
+      //console.log('pic', this.picturePreview);
       this.picturePreview = event.target.files[0];
-      console.log('pic', this.picturePreview);
     },
     analyzeImage() {
       //DO POST TO localhost:3000/analyze
