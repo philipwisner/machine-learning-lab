@@ -1,5 +1,5 @@
 <template>
-  <div class="category" :class="[category.class, {'selected': $route.path == category.link}]" @click="updateRoute(category.link)">
+  <div class="category" :class="[category.class, {'selected': $route.path.includes(category.link)}]" @click="updateRoute(category.link)">
       <h4>{{category.name}}</h4>
       <p>{{category.description}}</p>
     </div>
