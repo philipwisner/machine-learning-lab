@@ -8,6 +8,11 @@ import Tabular from "./views/Tabular.vue";
 import Healthcare from "./views/Healthcare.vue";
 
 import BearImages from "./components/Apps/BearImages.vue";
+import NlpChild from "./components/Apps/NlpChild.vue";
+import GanChild from "./components/Apps/GanChild.vue";
+import TabularChild from "./components/Apps/TabularChild.vue";
+import HealthcareChild from "./components/Apps/HealthcareChild.vue";
+
 
 Vue.use(Router)
 
@@ -24,30 +29,54 @@ export default new Router({
       component: Vision,
       children: [
         {
-          path: 'bearimages',
-          component: BearImages,
+          path: "bearimages",
+          component: BearImages
         }
       ]
     },
     {
       path: "/nlp",
       name: "nlp",
-      component: Nlp
+      component: Nlp,
+      children: [
+        {
+          path: "nlpchild",
+          component: NlpChild
+        }
+      ]
     },
     {
       path: "/gan",
       name: "gan",
-      component: Gan
+      component: Gan,
+      children: [
+        {
+          path: "ganchild",
+          component: GanChild
+        }
+      ]
     },
     {
       path: "/tabular",
       name: "tabular",
-      component: Tabular
+      component: Tabular,
+      children: [
+        {
+          path: "tabularchild",
+          component: TabularChild
+        }
+      ]
     },
     {
       path: "/healthcare",
       name: "healthcare",
-      component: Healthcare
+      component: Healthcare,
+      children: [
+        {
+          path: "healthcarechild",
+          component: HealthcareChild
+        }
+      ]
     }
   ]
 });
