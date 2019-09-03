@@ -50,4 +50,13 @@ export default {
   border-radius: 10px;
   overflow-y: auto;
 }
+h3 {
+  font-size: 22px;
+}
+button {
+  cursor: pointer;
+}
+button:focus {
+  outline: none;
+}
 </style>

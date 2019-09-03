@@ -70,7 +70,6 @@ h1 a {
 h3 {
   color: #34D671;
   margin-bottom: 15px;
-  font-size: 22px;
 }
 h4 {
   color: #34D671;
@@ -101,8 +100,5 @@ h4 {
   margin-bottom: 10px;
   padding: 40px 20px;
   text-decoration: none;
-}
-.app-outlet {
-  border: 1px solid orange;
 }
 </style>
