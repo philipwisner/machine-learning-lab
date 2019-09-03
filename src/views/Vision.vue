@@ -2,7 +2,7 @@
   <div class="vision-container">
     <BackButton :path=path v-if="$route.path != '/vision'"/>
     <CloseButton/>
-    <div class="vision-content">
+    <div class="category-content">
       <h1> <router-link to="/vision">Computer Vision</router-link></h1>
       <p class="description" v-if="$route.path == '/vision'">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sapien quam, efficitur sed nibh tempus, efficitur iaculis lacus. Curabitur ut hendrerit velit. Ut iaculis ligula mauris, ac porttitor tellus vehicula semper. Nam vitae risus lectus. Nam pellentesque sit amet dui sit amet vehicula.</p>
       <div class="app-list-container" v-if="$route.path == '/vision'">
@@ -58,9 +58,6 @@ export default {
 </script>
 
 <style scoped>
-.vision-content {
-  padding: 5%;
-}
 h1 a {
   margin-bottom: 20px;
   color: #34D671;
@@ -75,30 +72,8 @@ h4 {
   color: #34D671;
   text-decoration: none;
 }
-.computer-vision {
-  padding: 0 20px;
-}
-.description {
-  margin-bottom: 30px;
-}
 .count {
-  font-size: 16px;
-  margin-left: 10px;
+
   color:  rgb(113, 255, 168);
-}
-.app-list-container {
-  margin-top: 60px;
-}
-.app-list {
-  display: flex;
-  flex-wrap: wrap;
-}
-.app {
-  flex: 1 1 100%;
-  border: 1px solid #BFBFBF;
-  border-radius: 3px;
-  margin-bottom: 10px;
-  padding: 40px 20px;
-  text-decoration: none;
 }
 </style>
