@@ -3,12 +3,12 @@
     <h3>Classify Bear Images 🐻</h3>
     <p class="description">Upload images of teddy bears, black bears, grizzly bears, or all three and our model will tell you which one you uploaded.</p>
     <div class="image-upload">
-      <p>Upload Image</p>
+      <p class="upload-image-header">Upload Image</p>
       <input type="file" name="pic" accept="image/*" @change="imageUploaded">
     </div>
     <div class="image-preview">
-      <div vi-if="" class="dummy-image"></div>
-      <p>{{picturePreview}}</p>
+      <div v-if="!picturePreview" class="dummy-image"></div>
+      <img id="output-image"/>
     </div>
     <div class="results-container">
       <p class="result-header">RESULTS</p>
@@ -25,18 +25,24 @@ export default {
   data() {
     return {
       pictureResult: 'None',
-      picturePreview: null,
+      picturePreview: false,
     }
   },
   methods: {
     imageUploaded(event) {
-      //console.log('pic', this.picturePreview);
-      this.picturePreview = event.target.files[0];
+      console.log('event', event);
+      var reader = new FileReader();
+      reader.onload = function() {
+        var output = document.getElementById('output-image');
+        output.src = reader.result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
+      this.picturePreview = true;
     },
     analyzeImage() {
       //DO POST TO localhost:3000/analyze
       this.pictureResult = 'Teddy Bear';
-    }
+    },
   }
 
 }
@@ -53,11 +59,26 @@ h3 {
 .description {
   margin-bottom: 30px;
 }
+.image-preview {
+  height: 250px;
+}
+.image-upload {
+  margin-bottom: 20px;
+}
+.upload-image-header {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
 .dummy-image {
-  width: 500px;
+  max-width: 500px;
   background: #BFBFBF;
   opacity: .30;
   height: 250px;
+}
+#output-image {
+  max-width: 500px;
+  max-height: 250px;
 }
 .results-container {
   margin: 40px 0;
