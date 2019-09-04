@@ -25,7 +25,7 @@ export default {
 
 <style scoped>
 .nav-panel {
-  padding: 5%;
+  padding: 80px 5% 5% 5%;
 }
 .logo {
   position: absolute;

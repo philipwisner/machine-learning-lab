@@ -48,14 +48,24 @@ export default {
     },
     async analyzeImage() {
       if (this.selectedFile) {
-        console.log('analyze image clicked');
-        const formData = new FormData();
-        formData.append('myFile', this.selectedFile, this.selectedFile.name)
+        let formData = new FormData();
+        formData.append('file', this.selectedFile)
         try {
           this.pictureResult = '...';
-          const response = await this.axios.post("http://prakash.ai:3000/analyze", formData);
-          console.log('response from api is', response);
-          this.pictureResult = response;
+          const response = await this.axios.post("http://prakash.ai:3000/analyze", formData, {'Content-Type': '*' });
+          switch (response.data.result) {
+            case 'teddys':
+              this.pictureResult = 'Teddy Bear';
+              break;
+            case 'grizzly':
+              this.pictureResult = 'Grizzly Bear';
+              break;
+            case 'black':
+              this.pictureResult = 'Black Bear';
+              break;
+            default:
+              this.pictureResult = 'Error'
+          }
           this.analyzing = false;
         } catch (error) {
           console.error(error);
@@ -114,6 +124,7 @@ h3 {
   color: #242424;
   font-size: 28px;
   font-weight: 500;
+  text-transform: capitalize;
 }
 .error {
   margin-top: 20px;

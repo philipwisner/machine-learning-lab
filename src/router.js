@@ -7,7 +7,7 @@ import Gan from "./views/Gan.vue";
 import Tabular from "./views/Tabular.vue";
 import Healthcare from "./views/Healthcare.vue";
 
-import BearImages from "./components/Apps/BearImages.vue";
+import BearImages from "./components/Apps/Computer Vision/BearImages.vue";
 import NlpChild from "./components/Apps/NlpChild.vue";
 import GanChild from "./components/Apps/GanChild.vue";
 import TabularChild from "./components/Apps/TabularChild.vue";
