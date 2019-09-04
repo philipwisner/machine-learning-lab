@@ -4,18 +4,12 @@
     <CloseButton/>
     <div class="category-content">
       <h1> <router-link :to="path">{{name}}</router-link></h1>
-      <p class="description" v-if="$route.path == path">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sapien quam, efficitur sed nibh tempus, efficitur iaculis lacus. Curabitur ut hendrerit velit. Ut iaculis ligula mauris, ac porttitor tellus vehicula semper. Nam vitae risus lectus. Nam pellentesque sit amet dui sit amet vehicula.</p>
+      <p class="description" v-if="$route.path == path">{{category.longDescription}}</p>
       <div class="app-list-container" v-if="$route.path == path">
-        <h3>{{name}} Apps <span class="count">{{count}}</span></h3>
+        <h3>Apps <span class="count">{{count}}</span></h3>
         <div class="app-list">
-          <router-link to="nlp/nlpchild" class="app">
-            <h4 class="app-name">NLP Child App</h4>
-          </router-link>
-          <router-link to="vision/bearimages" class="app">
-           <h4 class="app-name">Sample App 2</h4>
-          </router-link>
-          <router-link to="vision/bearimages" class="app">
-            <h4 class="app-name">Sample App 3</h4>
+          <router-link :key="app.index" v-for="app in category.apps" :to="app.link" class="app">
+            <h4 class="app-name">{{app.name}}</h4>
           </router-link>
         </div>
       </div>
@@ -35,18 +29,22 @@ export default {
     CloseButton,
     BackButton,
   },
+  props: {
+    categories: Array
+  },
   data() {
     return {
-      name: 'Natural Language Processing/Understanding',
-      path: '/nlp',
-      count: 4,
+      name: this.categories[1].fullName,
+      path: this.categories[1].link,
+      count: this.categories[1].apps.length,
+      category: this.categories[1],
     }
   },
 }
 </script>
 
 <style scoped lang="scss">
-$color: #0099FF;
+$color: #3498db;
 
 h1 a {
   margin-bottom: 20px;
