@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <NavPanel id="nav-panel" :categories="categories"/>
-    <router-view id="router-view" :reasons="reasons"/>
+    <router-view id="router-view" :reasons="reasons" :categories="categories"/>
   </div>
 </template>
 
@@ -29,8 +29,8 @@ export default {
 
 $background-main: #05386B;
 $box-shadow: 0px 3px 6px 3px rgba(0,0,0,.2);
-$dark-font: #242424;
-$light-font: #808080;
+$dark-font: #2c3e50;
+$light-font: #7f8c8d;
 $border-color: #BFBFBF;
 
 * {
