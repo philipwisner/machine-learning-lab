@@ -24,7 +24,7 @@ export default {
 
 button {
   position: fixed;
-  margin-left: -15px;
+  margin-left: -10px;
   border: none;
   background: none;
   cursor: pointer;
