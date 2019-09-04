@@ -48,11 +48,12 @@ export default {
     },
     async analyzeImage() {
       if (this.selectedFile) {
+        console.log('analyze image clicked');
         const formData = new FormData();
         formData.append('myFile', this.selectedFile, this.selectedFile.name)
         try {
           this.pictureResult = '...';
-          const response = await this.axios.post("http://localhost:3000/analyze", formData);
+          const response = await this.axios.post("http://prakash.ai:3000/analyze", formData);
           console.log('response from api is', response);
           this.pictureResult = response;
           this.analyzing = false;
