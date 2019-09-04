@@ -4,12 +4,13 @@
     <CloseButton/>
     <div class="category-content">
       <h1> <router-link :to="category.link" :style="{color: category.color}">{{category.name}}</router-link></h1>
-      <p class="description" v-if="$route.path == category.link">{{category.longDescription}}</p>
+      <p class="long-description" v-if="$route.path == category.link">{{category.longDescription}}</p>
       <div class="app-list-container" v-if="$route.path == category.link">
         <h3 :style="{color: category.color}">Apps <span class="count">{{category.apps.length}}</span></h3>
         <div class="app-list">
           <router-link :key="app.index" v-for="app in category.apps" :to="app.link" class="app">
             <h4 class="app-name">{{app.name}}</h4>
+            <p class="description">{{app.description}}</p>
           </router-link>
         </div>
       </div>
@@ -43,15 +44,74 @@ export default {
 </script>
 
 <style scoped lang="scss">
+$box-shadow: 0px 3px 6px 3px rgba(0,0,0,.2);
+$dark-font: #2c3e50;
+$light-font: #7f8c8d;
+$border-color: #BFBFBF;
+
 h1 a {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   text-decoration: none;
   display: block;
 }
 h3 {
   margin-bottom: 15px;
 }
-.count {
-  font-weight: 400;
+.category-content {
+  padding: 5% 5% 5% 5%;
+  .long-description {
+    height: 80px;
+  }
+}
+
+.app-list-container {
+  margin-top: 50px;
+  .app-list {
+    display: flex;
+    flex-wrap: wrap;
+    .app {
+      flex: 1 1 100%;
+      border: 1px solid $border-color;
+      border-radius: 3px;
+      margin-bottom: 10px;
+      padding: 25px;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      .app-name {
+        color: $dark-font;
+        text-decoration: none;
+        font-size: 18px;
+      }
+      .description {
+        color: $dark-font;
+        margin-top: 10px;
+        font-size: 14px;
+      }
+    }
+  }
+  .count {
+    font-size: 16px;
+    margin-left: 5px;
+    color: $light-font;
+    font-weight: 400;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .category-content {
+    font-size: 14px;
+    .long-description {
+      height: 150px;
+      border: 1px solid red;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .category-content {
+    font-size: 14px;
+    .long-description {
+      height: 180px;
+    }
+  }
 }
 </style>
