@@ -65,38 +65,4 @@ button {
 button:focus {
   outline: none;
 }
-/* SHARED STYLES */
-.category-content {
-  padding: 5%;
-}
-.app-list-container {
-  margin-top: 60px;
-}
-.app-list {
-  display: flex;
-  flex-wrap: wrap;
-}
-.app {
-  flex: 1 1 100%;
-  border: 1px solid $border-color;
-  border-radius: 3px;
-  margin-bottom: 10px;
-  padding: 40px 20px;
-  text-decoration: none;
-}
-.computer-vision {
-  padding: 0 20px;
-}
-.description {
-  margin-bottom: 30px;
-}
-.count {
-  font-size: 16px;
-  margin-left: 5px;
-  color: $light-font;
-}
-.app-name {
-  color: $dark-font;
-  text-decoration: none;
-}
 </style>
