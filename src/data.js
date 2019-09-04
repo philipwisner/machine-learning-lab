@@ -15,11 +15,14 @@ appData.categories = [
         name: "Classify Bear Images 🐻",
         description:
           "Upload an image of a teddy bear, black bear or grizzly bears and our model will tell you which one it uploaded",
-        link: "vision/bearimages"
+        link: "/vision/bearimages",
+        endPoint: "http://prakash.ai:3000/analyze",
       },
       {
-        name: "Sample App 2",
-        link: "vision/"
+        name: "Age Detector 🧓",
+        description: "Predicting age using artificial intelligence.",
+        link: "/vision/agedetector",
+        endPoint: "http://prakash.ai:3001/analyze",
       },
       {
         name: "Sample App 3",
