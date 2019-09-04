@@ -23,7 +23,7 @@ button {
   border: none;
   background: none;
   position: absolute;
-  right: 30px;
+  right: 25px;
   cursor: pointer;
 }
 button:focus {

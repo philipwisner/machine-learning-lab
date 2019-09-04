@@ -28,6 +28,7 @@ export default {
 .category-container {
   height: calc(100vh - 305px);
   overflow-y: auto;
+  padding-bottom: 20px;
 }
 .category-header {
   color: white;
