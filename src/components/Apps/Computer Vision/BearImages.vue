@@ -1,12 +1,11 @@
 <template>
   <div class="bear-app">
     <h3>Classify Bear Images 🐻</h3>
-    <p
-      class="description"
-    >Upload images of teddy bears, black bears, grizzly bears, or all three and our model will tell you which one you uploaded.</p>
+    <p class="description">Upload images of teddy bears, black bears, grizzly bears, or all three and our model will tell you which one you uploaded.</p>
     <div class="image-upload">
       <p class="upload-image-header">Upload Image</p>
-      <input type="file" name="pic" accept="image/*" @change="imageUploaded" />
+      <label for="pic">Choose a file</label>
+      <input type="file" name="pic" id="pic" accept="image/*" @change="imageUploaded" />
     </div>
     <div class="image-preview">
       <div v-if="!picturePreview" class="dummy-image"></div>
@@ -79,10 +78,25 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 h3 {
   color: #34d671;
   margin-bottom: 20px;
+}
+input {
+  display: none;
+}
+label {
+  cursor: pointer;
+  border: none;
+  background: white;
+  border: 1px solid rgb(198, 198, 198);
+  padding: 3px 10px;
+  font-size: 13px;
+  border-radius: 3px;
+  &:hover {
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+  }
 }
 .bear-app {
   margin-top: 40px;
