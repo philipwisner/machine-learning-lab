@@ -1,16 +1,25 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import Vision from "./views/Vision.vue"
-import Nlp from "./views/Nlp.vue";
-import Gan from "./views/Gan.vue";
-import Tabular from "./views/Tabular.vue";
-import Healthcare from "./views/Healthcare.vue";
 
-import BearImages from "./components/Apps/Computer Vision/BearImages.vue";
+//Computer Vision
+import Vision from "./views/Vision.vue";
+import ImageUpload from "./components/Apps/ImageUpload.vue";
+
+//NLP
+import Nlp from "./views/Nlp.vue";
 import NlpChild from "./components/Apps/NlpChild.vue";
+
+//GAN
+import Gan from "./views/Gan.vue";
 import GanChild from "./components/Apps/GanChild.vue";
+
+//Tabular
+import Tabular from "./views/Tabular.vue";
 import TabularChild from "./components/Apps/TabularChild.vue";
+
+//Healthcare
+import Healthcare from "./views/Healthcare.vue";
 import HealthcareChild from "./components/Apps/HealthcareChild.vue";
 
 
@@ -30,7 +39,11 @@ export default new Router({
       children: [
         {
           path: "bearimages",
-          component: BearImages
+          component: ImageUpload
+        },
+        {
+          path: "agedetector",
+          component: ImageUpload
         }
       ]
     },
