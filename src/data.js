@@ -9,6 +9,7 @@ appData.categories = [
     link: "/vision",
     logo: "Eye",
     class: "vision",
+    color: "#2ecc71",
     apps: [
       {
         name: "Bear Image",
@@ -34,6 +35,7 @@ appData.categories = [
     link: "/nlp",
     logo: "Graph",
     class: "nlp",
+    color: "#3498db",
     apps: [
       {
         name: "NLP Child App",
@@ -60,6 +62,7 @@ appData.categories = [
     link: "/gan",
     logo: "Person",
     class: "gan",
+    color: "#e67e22",
     apps: [
       {
         name: "GAN Child App",
@@ -83,6 +86,7 @@ appData.categories = [
     link: "/tabular",
     logo: "Thumb",
     class: "tabular",
+    color: "#9b59b6",
     apps: [
       {
         name: "Tabular Child App",
@@ -108,6 +112,7 @@ appData.categories = [
     link: "/healthcare",
     logo: "Thumb",
     class: "healthcare",
+    color: "#e74c3c",
     apps: [
       {
         name: "Healthcare Child App",
