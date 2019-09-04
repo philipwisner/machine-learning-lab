@@ -49,6 +49,7 @@ appData.categories = [
       }
     ]
   },
+  /*
   {
     name: "GAN",
     fullName: "General Adversarial Network",
@@ -97,6 +98,7 @@ appData.categories = [
       }
     ]
   },
+  */
   {
     name: "Healthcare",
     description:
