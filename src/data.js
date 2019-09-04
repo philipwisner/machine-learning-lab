@@ -12,7 +12,9 @@ appData.categories = [
     color: "#2ecc71",
     apps: [
       {
-        name: "Bear Image",
+        name: "Classify Bear Images 🐻",
+        description:
+          "Upload an image of a teddy bear, black bear or grizzly bears and our model will tell you which one it uploaded",
         link: "vision/bearimages"
       },
       {
