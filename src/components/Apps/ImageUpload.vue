@@ -1,7 +1,7 @@
 <template>
   <div class="bear-app">
-    <h3>Classify Bear Images 🐻</h3>
-    <p class="description">Upload images of teddy bears, black bears, grizzly bears, or all three and our model will tell you which one you uploaded.</p>
+    <h3>{{app.name}}</h3>
+    <p class="description">{{app.description}}
     <div class="image-upload">
       <p class="upload-image-header">Upload Image</p>
       <label for="pic">Choose a file</label>
@@ -15,7 +15,7 @@
       <p class="result-header">RESULTS</p>
       <p class="results">{{pictureResult}}</p>
     </div>
-    <button @click="analyzeImage">Analyze</button>
+    <button @click="analyzeImage" v-if="selectedFile">Analyze</button>
     <p class="error" v-if="error">{{error}}</p>
   </div>
 </template>
@@ -23,9 +23,15 @@
 
 <script>
 export default {
-  name: "BearImages",
+  name: "ImageUpload",
+  props: {
+    category: Object
+  },
   data() {
     return {
+      app: this.category.apps.find(app => {
+        return app.link == this.$route.path
+      }),
       pictureResult: "None",
       picturePreview: false,
       selectedFile: null,
@@ -43,7 +49,23 @@ export default {
       };
       reader.readAsDataURL(event.target.files[0]);
       this.selectedFile = event.target.files[0];
+      console.log('selected File', this.selectedFile);
       this.picturePreview = true;
+    },
+    transformBear(response) {
+      switch (response) {
+        case 'teddys':
+          this.pictureResult = 'Teddy Bear';
+          break;
+        case 'grizzly':
+          this.pictureResult = 'Grizzly Bear';
+          break;
+        case 'black':
+          this.pictureResult = 'Black Bear';
+          break;
+        default:
+          this.pictureResult = 'Error'
+      }
     },
     async analyzeImage() {
       if (this.selectedFile) {
@@ -51,19 +73,12 @@ export default {
         formData.append('file', this.selectedFile)
         try {
           this.pictureResult = '...';
-          const response = await this.axios.post("http://prakash.ai:3000/analyze", formData, {'Content-Type': '*' });
-          switch (response.data.result) {
-            case 'teddys':
-              this.pictureResult = 'Teddy Bear';
-              break;
-            case 'grizzly':
-              this.pictureResult = 'Grizzly Bear';
-              break;
-            case 'black':
-              this.pictureResult = 'Black Bear';
-              break;
-            default:
-              this.pictureResult = 'Error'
+          console.log(this.app.endPoint);
+          const response = await this.axios.post(this.app.endPoint, formData, {'Content-Type': '*' });
+          if (this.app.link == '/vision/bearimages') {
+            this.transformBear(response.data.result);
+          } else {
+            this.pictureResult = response.data.result;
           }
           this.analyzing = false;
         } catch (error) {
@@ -142,7 +157,7 @@ label {
 }
 .error {
   margin-top: 20px;
-  color: red;
+  color: #e74c3c;
 }
 button {
   margin-top: 10px;
