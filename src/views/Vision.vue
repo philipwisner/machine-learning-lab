@@ -8,7 +8,7 @@
 import CategoryHeader from '@/components/Reusable/CategoryHeader.vue';
 
 export default {
-  name: 'Gan',
+  name: 'Vision',
     components: {
       CategoryHeader
   },
