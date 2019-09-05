@@ -75,7 +75,9 @@ h3 {
     height: 150px;
   }
 }
-
+h1 {
+  margin-top: -25px;
+}
 .app-list-container {
   margin-top: 50px;
   .app-list {
