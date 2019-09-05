@@ -5,9 +5,22 @@
       <p class="description">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sapien quam, efficitur sed nibh tempus, efficitur iaculis lacus. Curabitur ut hendrerit velit. Ut iaculis ligula mauris, ac porttitor tellus vehicula semper. Nam vitae risus lectus. Nam pellentesque sit amet dui sit amet vehicula.
       </p>
-      <a href="#">Learn More</a>
+      <router-link to="/about">Learn More</router-link>
     </div>
     <div class="content-block">
+      <h2>The Team</h2>
+      <div class="subcontent-block" :key="member.$index" v-for="member in members">
+        <div class="icon-block">
+          <img src="../assets/logo.svg" alt="icon">
+        </div>
+        <div class="info-block">
+          <p class="info-header">{{member.name}}</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!--<div class="content-block">
       <h2>The Impacts of Machine Learning</h2>
       <div class="subcontent-block" :key="reason.$index" v-for="reason in reasons">
         <div class="icon-block">
@@ -18,7 +31,9 @@
           <p class="info-content">{{reason.content}}</p>
         </div>
       </div>
-    </div>
+    </div>-->
+
+
   </div>
 </template>
 
@@ -26,7 +41,7 @@
 export default {
   name: 'Welcome',
   props: {
-    reasons: Array,
+    members: Array,
   }
 }
 </script>
