@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <NavPanel id="nav-panel" :categories="categories"/>
-    <router-view id="router-view" :reasons="reasons" :categories="categories"/>
+    <router-view id="router-view" :reasons="reasons" :categories="categories" :members="members" :images="images"/>
   </div>
 </template>
 
@@ -11,7 +11,7 @@ import appData from './data'
 
 
 export default {
-  name: 'home',
+  name: 'App',
   components: {
     NavPanel
   },
@@ -19,6 +19,8 @@ export default {
     return {
       categories: appData.categories,
       reasons: appData.reasons,
+      members: appData.members,
+      images: appData.imageSets,
     }
   }
 }
