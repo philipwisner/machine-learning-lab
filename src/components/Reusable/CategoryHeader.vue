@@ -7,11 +7,14 @@
       <p class="long-description" v-if="$route.path == category.link">{{category.longDescription}}</p>
       <div class="app-list-container" v-if="$route.path == category.link">
         <h3 :style="{color: category.color}">Apps <span class="count">{{category.apps.length}}</span></h3>
-        <div class="app-list">
+        <div class="app-list" v-if="category.apps.length">
           <router-link :key="app.index" v-for="app in category.apps" :to="app.link" class="app">
             <h4 class="app-name">{{app.name}} <img class="app-icon" v-if="app.icon" :src="app.icon" alt="icon"></h4>
             <p class="description">{{app.description}}</p>
           </router-link>
+        </div>
+        <div v-else class="coming-soon">
+          COMING SOON
         </div>
       </div>
       <router-view class="app-outlet" :category="category" :images="images"></router-view>
@@ -54,7 +57,10 @@ $border-color: #BFBFBF;
   width: 20px;
   margin-bottom: -3px;
 }
-
+.coming-soon {
+  font-size: 25px;
+  margin-top: 20px;
+}
 h1 a {
   margin-bottom: 10px;
   text-decoration: none;

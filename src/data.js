@@ -30,89 +30,12 @@ appData.categories = [
         name: "Food Classifier 🍔",
         description: "Detects what type of food is in a picture.",
         link: "/vision/foodclassifier",
-        endPoint: "http://prakash.ai:2998/ping",
-        imageSet: "foodImages"
+        endPoint: "http://prakash.ai:2998/api/classify",
+        imageSet: "foodImages",
+        resultsHeight: "120px"
       }
     ]
   },
-  {
-    name: "NLP/NLU",
-    fullName: "Natural Language Processing/Understanding",
-    description:
-      "Allows computers to understand, analyze, manipulate and potentially generate human language.",
-    longDescription:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sapien quam, efficitur sed nibh tempus, efficitur iaculis lacus. Curabitur ut hendrerit velit. Ut iaculis ligula mauris, ac porttitor tellus vehicula semper. Nam vitae risus lectus. Nam pellentesque sit amet dui sit amet vehicula.",
-    link: "/nlp",
-    logo: "Graph",
-    class: "nlp",
-    color: "#3498db",
-    apps: [
-      {
-        name: "NLP Child App",
-        link: "nlp/nlpchild"
-      },
-      {
-        name: "Sample App 2",
-        link: "nlp/"
-      },
-      {
-        name: "Sample App 3",
-        link: "nlp/"
-      }
-    ]
-  },
-  /*
-  {
-    name: "GAN",
-    fullName: "General Adversarial Network",
-    description:
-      "Two neural networks compete with each other to become more accurate in their predictions.",
-    longDescription:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sapien quam, efficitur sed nibh tempus, efficitur iaculis lacus. Curabitur ut hendrerit velit. Ut iaculis ligula mauris, ac porttitor tellus vehicula semper. Nam vitae risus lectus. Nam pellentesque sit amet dui sit amet vehicula.",
-    link: "/gan",
-    logo: "Person",
-    class: "gan",
-    color: "#e67e22",
-    apps: [
-      {
-        name: "GAN Child App",
-        link: "gan/ganchild"
-      },
-      {
-        name: "Sample App 2",
-        link: "gan/"
-      },
-      {
-        name: "Sample App 3",
-        link: "gan/"
-      }
-    ]
-  },
-  {
-    name: "Tabular",
-    description: "Train models using traditional table based data sets.",
-    longDescription:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sapien quam, efficitur sed nibh tempus, efficitur iaculis lacus. Curabitur ut hendrerit velit. Ut iaculis ligula mauris, ac porttitor tellus vehicula semper. Nam vitae risus lectus. Nam pellentesque sit amet dui sit amet vehicula.",
-    link: "/tabular",
-    logo: "Thumb",
-    class: "tabular",
-    color: "#9b59b6",
-    apps: [
-      {
-        name: "Tabular Child App",
-        link: "tabular/tabularchild"
-      },
-      {
-        name: "Sample App 2",
-        link: "tabular/"
-      },
-      {
-        name: "Sample App 3",
-        link: "tabular/"
-      }
-    ]
-  },
-  */
   {
     name: "Healthcare",
     description:
@@ -127,19 +50,61 @@ appData.categories = [
       {
         name: "Breast Cancer Detector",
         icon: "/img/breast-cancer.362569fd.png",
-        description: "Detects breast cancer based off an x-ray.",
+        description: "Detects breast cancer based off an iamge.",
         link: "/healthcare/breastcancer",
         endPoint: "http://prakash.ai:2997/analyze"
       },
       {
-        name: "Sample App 2",
-        link: "healthcare/"
+        name: "Melanoma Detector ☀️",
+        description: "Detects melanoma based off an image.",
+        link: "/healthcare/melanoma",
+        endPoint: "http://prakash.ai:2996/image"
       },
       {
-        name: "Sample App 3",
-        link: "healthcare/"
+        name: "Malaria Detector",
+        icon: "/img/mosquito.3333bfb6.png",
+        description: "Detects malaria based off an image.",
+        link: "/healthcare/malaria",
+        endPoint: "http://prakash.ai:2995/analyze"
       }
     ]
+  },
+  {
+    name: "NLP/NLU",
+    fullName: "Natural Language Processing/Understanding",
+    description:
+      "Allows computers to understand, analyze, manipulate and potentially generate human language.",
+    longDescription:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sapien quam, efficitur sed nibh tempus, efficitur iaculis lacus. Curabitur ut hendrerit velit. Ut iaculis ligula mauris, ac porttitor tellus vehicula semper. Nam vitae risus lectus. Nam pellentesque sit amet dui sit amet vehicula.",
+    link: "/nlp",
+    logo: "Graph",
+    class: "nlp",
+    color: "#3498db",
+    apps: []
+  },
+  {
+    name: "GAN",
+    fullName: "General Adversarial Network",
+    description:
+      "Two neural networks compete with each other to become more accurate in their predictions.",
+    longDescription:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sapien quam, efficitur sed nibh tempus, efficitur iaculis lacus. Curabitur ut hendrerit velit. Ut iaculis ligula mauris, ac porttitor tellus vehicula semper. Nam vitae risus lectus. Nam pellentesque sit amet dui sit amet vehicula.",
+    link: "/gan",
+    logo: "Person",
+    class: "gan",
+    color: "#e67e22",
+    apps: []
+  },
+  {
+    name: "Tabular",
+    description: "Train models using traditional table based data sets.",
+    longDescription:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sapien quam, efficitur sed nibh tempus, efficitur iaculis lacus. Curabitur ut hendrerit velit. Ut iaculis ligula mauris, ac porttitor tellus vehicula semper. Nam vitae risus lectus. Nam pellentesque sit amet dui sit amet vehicula.",
+    link: "/tabular",
+    logo: "Thumb",
+    class: "tabular",
+    color: "#9b59b6",
+    apps: []
   }
 ];
 
@@ -176,26 +141,9 @@ appData.members = [
   }
 ];
 
-appData.imageSets2 = {
-  bearImages: [
-    {
-      name: "Grizzly Bear",
-      path: "/img/grizzly.376cfa67.jpg"
-    },
-    {
-      name: "Black Bear",
-      path: "/img/blackbear.7f53b5c2.jpg"
-    },
-    {
-      name: "Teddy Bear",
-      path: "/img/teddy.6f0650a6.jpg"
-    }
-  ],
-};
-
 appData.imageSets = [
   {
-    category: 'bearImages',
+    category: "bearImages",
     images: [
       {
         name: "Grizzly Bear",
@@ -209,6 +157,19 @@ appData.imageSets = [
         name: "Teddy Bear",
         path: "/img/teddy.6f0650a6.jpg"
       }
+    ]
+  },
+  {
+    category: "ageImages",
+    images: [
+      {
+        name: "Paul",
+        path: "/img/grizzly.376cfa67.jpg"
+      },
+      {
+        name: "Obama",
+        path: "/img/blackbear.7f53b5c2.jpg"
+      },
     ]
   }
 ];
