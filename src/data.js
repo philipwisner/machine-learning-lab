@@ -17,14 +17,14 @@ appData.categories = [
           "Upload an image of a teddy bear, black bear or grizzly bears and our model will tell you which one it uploaded",
         link: "/vision/bearimages",
         endPoint: "http://prakash.ai:3000/analyze",
-        imageSet: "bearImages"
+        imageSet: "bearImages",
       },
       {
         name: "Age Detector 🧓",
         description: "Predicting age using artificial intelligence.",
         link: "/vision/agedetector",
         endPoint: "http://prakash.ai:3001/analyze",
-        imageSet: "ageImages"
+        imageSet: "ageImages",
       },
       {
         name: "Food Classifier 🍔",
@@ -32,7 +32,7 @@ appData.categories = [
         link: "/vision/foodclassifier",
         endPoint: "http://prakash.ai:2998/api/classify",
         imageSet: "foodImages",
-        resultsHeight: "120px"
+        resultsHeight: "120px",
       }
     ]
   },
@@ -52,20 +52,20 @@ appData.categories = [
         icon: "/img/breast-cancer.362569fd.png",
         description: "Detects breast cancer based off an iamge.",
         link: "/healthcare/breastcancer",
-        endPoint: "http://prakash.ai:2997/analyze"
+        endPoint: "http://prakash.ai:2997/analyze",
       },
       {
         name: "Melanoma Detector ☀️",
         description: "Detects melanoma based off an image.",
         link: "/healthcare/melanoma",
-        endPoint: "http://prakash.ai:2996/image"
+        endPoint: "http://prakash.ai:2996/image",
       },
       {
         name: "Malaria Detector",
         icon: "/img/mosquito.3333bfb6.png",
         description: "Detects malaria based off an image.",
         link: "/healthcare/malaria",
-        endPoint: "http://prakash.ai:2995/analyze"
+        endPoint: "http://prakash.ai:2995/analyze",
       }
     ]
   },
@@ -146,15 +146,16 @@ appData.imageSets = [
     category: "bearImages",
     images: [
       {
-        name: "Grizzly Bear",
-        path: "/img/grizzly.376cfa67.jpg"
+        name: "GrizzlyBear",
+        path: "/img/grizzly.376cfa67.jpg",
+        type: "image/jpeg",
       },
       {
-        name: "Black Bear",
+        name: "BlackBear",
         path: "/img/blackbear.7f53b5c2.jpg"
       },
       {
-        name: "Teddy Bear",
+        name: "TeddyBear",
         path: "/img/teddy.6f0650a6.jpg"
       }
     ]
@@ -164,12 +165,29 @@ appData.imageSets = [
     images: [
       {
         name: "Paul",
-        path: "/img/grizzly.376cfa67.jpg"
+        path: "/img/paul.6a00af87.jpg"
       },
       {
         name: "Obama",
-        path: "/img/blackbear.7f53b5c2.jpg"
+        path: "/img/obama.9e8956cb.jpg"
+      }
+    ]
+  },
+  {
+    category: "foodImages",
+    images: [
+      {
+        name: "Hamburger",
+        path: "/img/hamburger.705102ee.jpeg"
       },
+      {
+        name: "Steak",
+        path: "/img/steak.f6051360.jpg"
+      },
+      {
+        name: "Yogurt",
+        path: "/img/yogurt.ea39b77b.jpg"
+      }
     ]
   }
 ];
