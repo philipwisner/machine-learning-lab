@@ -99,6 +99,14 @@ export default new Router({
           path: "breastcancer",
           component: ImageUpload
         },
+        {
+          path: "melanoma",
+          component: ImageUpload
+        },
+        {
+          path: "malaria",
+          component: ImageUpload
+        }
       ]
     }
   ]
