@@ -5,7 +5,7 @@ appData.categories = [
     name: "Computer Vision",
     description: `Allows computers to "see" and understand the content of images and photographs`,
     longDescription:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sapien quam, efficitur sed nibh tempus, efficitur iaculis lacus. Curabitur ut hendrerit velit. Ut iaculis ligula mauris, ac porttitor tellus vehicula semper. Nam vitae risus lectus. Nam pellentesque sit amet dui sit amet vehicula.",
+      "Computer vision is a field of computer science that works on enabling computers to see, identify and process images in the same way that human vision does, and then provide appropriate output. It is like imparting human intelligence and instincts to a computer. In reality though, it is a difficult task to enable computers to recognize images of different objects.",
     link: "/vision",
     logo: "Eye",
     class: "vision",
@@ -16,19 +16,22 @@ appData.categories = [
         description:
           "Upload an image of a teddy bear, black bear or grizzly bears and our model will tell you which one it uploaded",
         link: "/vision/bearimages",
-        endPoint: "http://prakash.ai:3000/analyze"
+        endPoint: "http://prakash.ai:3000/analyze",
+        imageSet: "bearImages"
       },
       {
         name: "Age Detector 🧓",
         description: "Predicting age using artificial intelligence.",
         link: "/vision/agedetector",
-        endPoint: "http://prakash.ai:3001/analyze"
+        endPoint: "http://prakash.ai:3001/analyze",
+        imageSet: "ageImages"
       },
       {
         name: "Food Classifier 🍔",
         description: "Detects what type of food is in a picture.",
         link: "/vision/foodclassifier",
-        endPoint: "http://prakash.ai:2998/api/classify"
+        endPoint: "http://prakash.ai:2998/ping",
+        imageSet: "foodImages"
       }
     ]
   },
@@ -113,7 +116,7 @@ appData.categories = [
   {
     name: "Healthcare",
     description:
-      "Machine Learning and AI are transforming the healthcare industry.",
+      "Examples of how Machine Learning is transforming the healthcare industry.",
     longDescription:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sapien quam, efficitur sed nibh tempus, efficitur iaculis lacus. Curabitur ut hendrerit velit. Ut iaculis ligula mauris, ac porttitor tellus vehicula semper. Nam vitae risus lectus. Nam pellentesque sit amet dui sit amet vehicula.",
     link: "/healthcare",
@@ -173,7 +176,7 @@ appData.members = [
   }
 ];
 
-appData.imageSets = {
+appData.imageSets2 = {
   bearImages: [
     {
       name: "Grizzly Bear",
@@ -189,6 +192,26 @@ appData.imageSets = {
     }
   ],
 };
+
+appData.imageSets = [
+  {
+    category: 'bearImages',
+    images: [
+      {
+        name: "Grizzly Bear",
+        path: "/img/grizzly.376cfa67.jpg"
+      },
+      {
+        name: "Black Bear",
+        path: "/img/blackbear.7f53b5c2.jpg"
+      },
+      {
+        name: "Teddy Bear",
+        path: "/img/teddy.6f0650a6.jpg"
+      }
+    ]
+  }
+];
 
 
 
