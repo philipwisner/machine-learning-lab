@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import About from "./views/About.vue";
 
 //Computer Vision
 import Vision from "./views/Vision.vue";
@@ -33,6 +34,11 @@ export default new Router({
       component: Home
     },
     {
+      path: "/about",
+      name: "about",
+      component: About
+    },
+    {
       path: "/vision",
       name: "vision",
       component: Vision,
@@ -43,6 +49,10 @@ export default new Router({
         },
         {
           path: "agedetector",
+          component: ImageUpload
+        },
+        {
+          path: "foodclassifier",
           component: ImageUpload
         }
       ]
@@ -86,9 +96,9 @@ export default new Router({
       component: Healthcare,
       children: [
         {
-          path: "healthcarechild",
-          component: HealthcareChild
-        }
+          path: "breastcancer",
+          component: ImageUpload
+        },
       ]
     }
   ]
