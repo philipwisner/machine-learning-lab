@@ -14,7 +14,7 @@ export default {
   },
   props: {
     categories: Array,
-    images: Object,
+    images: Array,
   },
   data() {
     return {
