@@ -1,7 +1,8 @@
 <template>
-  <div class="bear-app">
-    <h3>{{app.name}}</h3>
+  <div class="child-app">
+    <h3>{{app.name}} <img v-if="app.icon" :src="app.icon" alt="icon" class="app-icon"></h3>
     <p class="description">{{app.description}}
+    <SampleImages :selectedImages="selectedImages" v-if="selectedImages.length > 0"/>
     <div class="image-upload">
       <p class="upload-image-header">Upload Image</p>
       <label for="pic">Choose a file</label>
@@ -22,16 +23,25 @@
 
 
 <script>
+import SampleImages from '@/components/Reusable/SampleImages.vue'
+import { filter } from 'minimatch';
+
 export default {
   name: "ImageUpload",
+  components: {
+    SampleImages
+  },
   props: {
-    category: Object
+    category: Object,
+    images: Array,
   },
   data() {
     return {
       app: this.category.apps.find(app => {
         return app.link == this.$route.path
       }),
+      imageSetName: '',
+      selectedImages: [],
       pictureResult: "None",
       picturePreview: false,
       selectedFile: null,
@@ -89,13 +99,29 @@ export default {
         this.error = 'Please select a file'
       }
     }
+  },
+  mounted() {
+    this.imageSetName = this.app.imageSet;
+
+    var filterImages = this.images.filter(image => {
+      return image.category == this.imageSetName;
+    });
+
+    if (filterImages.length > 0) {
+      this.selectedImages = filterImages[0].images;
+    }
   }
-};
+}
 </script>
 
 <style scoped lang="scss">
+$background-main: #05386B;
+.app-icon {
+  width: 20px;
+  margin-bottom: -3px;
+}
 h3 {
-  color: #34d671;
+  color: $background-main;
   margin-bottom: 20px;
 }
 input {
@@ -113,14 +139,14 @@ label {
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
   }
 }
-.bear-app {
-  margin-top: 40px;
+.child-app {
+  margin-top: 20px;
 }
 .description {
   margin-bottom: 30px;
 }
 .image-preview {
-  height: 250px;
+  height: 200px;
 }
 .image-upload {
   margin-bottom: 20px;
@@ -131,14 +157,14 @@ label {
   margin-bottom: 10px;
 }
 .dummy-image {
-  max-width: 500px;
+  max-width: 400px;
   background: #bfbfbf;
   opacity: 0.3;
-  height: 250px;
+  height: 200px;
 }
 #output-image {
-  max-width: 500px;
-  max-height: 250px;
+  max-width: 400px;
+  max-height: 200px;
 }
 .results-container {
   margin: 40px 0;
