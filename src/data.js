@@ -16,17 +16,19 @@ appData.categories = [
         description:
           "Upload an image of a teddy bear, black bear or grizzly bears and our model will tell you which one it uploaded",
         link: "/vision/bearimages",
-        endPoint: "http://prakash.ai:3000/analyze",
+        endPoint: "http://prakash.ai:3000/analyze"
       },
       {
         name: "Age Detector 🧓",
         description: "Predicting age using artificial intelligence.",
         link: "/vision/agedetector",
-        endPoint: "http://prakash.ai:3001/analyze",
+        endPoint: "http://prakash.ai:3001/analyze"
       },
       {
-        name: "Sample App 3",
-        link: "vision/"
+        name: "Food Classifier 🍔",
+        description: "Detects what type of food is in a picture.",
+        link: "/vision/foodclassifier",
+        endPoint: "http://prakash.ai:2998/api/classify"
       }
     ]
   },
@@ -120,8 +122,11 @@ appData.categories = [
     color: "#e74c3c",
     apps: [
       {
-        name: "Healthcare Child App",
-        link: "healthcare/healthcarechild"
+        name: "Breast Cancer Detector",
+        icon: "/img/breast-cancer.362569fd.png",
+        description: "Detects breast cancer based off an x-ray.",
+        link: "/healthcare/breastcancer",
+        endPoint: "http://prakash.ai:2997/analyze"
       },
       {
         name: "Sample App 2",
@@ -149,5 +154,42 @@ appData.reasons = [
     content: 'Ut iaculis ligula mauris, ac porttitor tellus vehicula semper.'
   }
 ]
+
+appData.members = [
+  {
+    name: "Prakash Parvateneni",
+    title: "",
+    image: "none"
+  },
+  {
+    name: "Philip Wisner",
+    title: "",
+    image: "none"
+  },
+  {
+    name: "Sam Depretis",
+    title: "",
+    image: "none"
+  }
+];
+
+appData.imageSets = {
+  bearImages: [
+    {
+      name: "Grizzly Bear",
+      path: "/img/grizzly.376cfa67.jpg"
+    },
+    {
+      name: "Black Bear",
+      path: "/img/blackbear.7f53b5c2.jpg"
+    },
+    {
+      name: "Teddy Bear",
+      path: "/img/teddy.6f0650a6.jpg"
+    }
+  ],
+};
+
+
 
 module.exports = appData;
