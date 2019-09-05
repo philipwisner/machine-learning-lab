@@ -1,6 +1,6 @@
 <template>
   <div class="computer-vision">
-    <CategoryHeader :categoryName="categoryName" :categories="categories"/>
+    <CategoryHeader :categoryName="categoryName" :categories="categories" :images="images"/>
   </div>
 </template>
 
@@ -13,7 +13,8 @@ export default {
       CategoryHeader
   },
   props: {
-    categories: Array
+    categories: Array,
+    images: Object,
   },
   data() {
     return {
