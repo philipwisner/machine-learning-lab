@@ -3,9 +3,10 @@
     <div class="content-block header">
       <h2>What is Machine Learning?</h2>
       <p class="description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sapien quam, efficitur sed nibh tempus, efficitur iaculis lacus. Curabitur ut hendrerit velit. Ut iaculis ligula mauris, ac porttitor tellus vehicula semper. Nam vitae risus lectus. Nam pellentesque sit amet dui sit amet vehicula.
+        Machine learning (ML) is the scientific study of algorithms and statistical models that computer systems use to perform a specific task without using explicit instructions, relying on patterns and inference instead. It is seen as a subset of artificial intelligence. Machine learning algorithms build a mathematical model based on sample data, known as "training data", in order to make predictions or decisions without being explicitly programmed to perform the task. Machine learning algorithms are used in a wide variety of applications, such as email filtering and computer vision, where it is difficult or infeasible to develop a conventional algorithm for effectively performing the task.
       </p>
-      <router-link to="/about">Learn More</router-link>
+      <a href="https://en.wikipedia.org/wiki/Machine_learning" target="_blank">Learn More</a>
+      <!--<router-link to="/about">Learn More</router-link>-->
     </div>
     <div class="content-block">
       <h2>The Team</h2>
@@ -68,7 +69,7 @@ p {
   margin-bottom: 30px;
 }
 .content-block.header {
-  margin-bottom: 100px;
+  margin-bottom: 60px;
 }
 .description {
   margin-bottom: 20px;
