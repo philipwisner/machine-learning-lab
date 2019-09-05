@@ -3,18 +3,18 @@
     <BackButton :path=category.link v-if="$route.path != category.link"/>
     <CloseButton/>
     <div class="category-content">
-      <h1> <router-link :to="category.link" :style="{color: category.color}">{{category.name}}</router-link></h1>
+      <h1><router-link :to="category.link" :style="{color: category.color}">{{category.name}}</router-link></h1>
       <p class="long-description" v-if="$route.path == category.link">{{category.longDescription}}</p>
       <div class="app-list-container" v-if="$route.path == category.link">
         <h3 :style="{color: category.color}">Apps <span class="count">{{category.apps.length}}</span></h3>
         <div class="app-list">
           <router-link :key="app.index" v-for="app in category.apps" :to="app.link" class="app">
-            <h4 class="app-name">{{app.name}}</h4>
+            <h4 class="app-name">{{app.name}} <img class="app-icon" v-if="app.icon" :src="app.icon" alt="icon"></h4>
             <p class="description">{{app.description}}</p>
           </router-link>
         </div>
       </div>
-      <router-view class="app-outlet" :category="category"></router-view>
+      <router-view class="app-outlet" :category="category" :images="images"></router-view>
     </div>
   </div>
 </template>
@@ -32,6 +32,7 @@ export default {
   props: {
     categories: Array,
     categoryName: String,
+    images: Array,
   },
   data() {
     return {
@@ -49,8 +50,13 @@ $dark-font: #2c3e50;
 $light-font: #7f8c8d;
 $border-color: #BFBFBF;
 
+.app-icon {
+  width: 20px;
+  margin-bottom: -3px;
+}
+
 h1 a {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   text-decoration: none;
   display: block;
 }
@@ -60,7 +66,7 @@ h3 {
 .category-content {
   padding: 5% 5% 5% 5%;
   .long-description {
-    height: 80px;
+    height: 150px;
   }
 }
 
@@ -97,12 +103,18 @@ h3 {
     font-weight: 400;
   }
 }
+@media screen and (min-width: 1200px) {
+  .category-content {
+    .long-description {
+      height: 100px;
+    }
+  }
+}
 @media screen and (max-width: 1000px) {
   .category-content {
     font-size: 14px;
     .long-description {
       height: 150px;
-      border: 1px solid red;
     }
   }
 }
@@ -110,7 +122,7 @@ h3 {
   .category-content {
     font-size: 14px;
     .long-description {
-      height: 180px;
+      height: 240px;
     }
   }
 }
