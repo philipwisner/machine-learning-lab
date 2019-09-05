@@ -106,6 +106,10 @@ export default new Router({
         {
           path: "malaria",
           component: ImageUpload
+        },
+        {
+          path: "mura",
+          component: ImageUpload
         }
       ]
     }

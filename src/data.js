@@ -17,14 +17,14 @@ appData.categories = [
           "Upload an image of a teddy bear, black bear or grizzly bears and our model will tell you which one it uploaded",
         link: "/vision/bearimages",
         endPoint: "http://prakash.ai:3000/analyze",
-        imageSet: "bearImages",
+        imageSet: "bearImages"
       },
       {
         name: "Age Detector 🧓",
         description: "Predicting age using artificial intelligence.",
         link: "/vision/agedetector",
         endPoint: "http://prakash.ai:3001/analyze",
-        imageSet: "ageImages",
+        imageSet: "ageImages"
       },
       {
         name: "Food Classifier 🍔",
@@ -32,7 +32,7 @@ appData.categories = [
         link: "/vision/foodclassifier",
         endPoint: "http://prakash.ai:2998/api/classify",
         imageSet: "foodImages",
-        resultsHeight: "120px",
+        resultsHeight: "120px"
       }
     ]
   },
@@ -50,22 +50,29 @@ appData.categories = [
       {
         name: "Breast Cancer Detector",
         icon: "/img/breast-cancer.362569fd.png",
-        description: "Detects breast cancer based off an iamge.",
+        description: "Detects breast cancer based off an image.",
         link: "/healthcare/breastcancer",
-        endPoint: "http://prakash.ai:2997/analyze",
+        endPoint: "http://prakash.ai:2997/analyze"
       },
       {
         name: "Melanoma Detector ☀️",
         description: "Detects melanoma based off an image.",
         link: "/healthcare/melanoma",
-        endPoint: "http://prakash.ai:2996/image",
+        endPoint: "http://prakash.ai:2996/image"
       },
       {
         name: "Malaria Detector",
         icon: "/img/mosquito.3333bfb6.png",
         description: "Detects malaria based off an image.",
         link: "/healthcare/malaria",
-        endPoint: "http://prakash.ai:2995/analyze",
+        endPoint: "http://prakash.ai:2995/analyze"
+      },
+      {
+        name: "MURA (Musculoskeletal Radiographs) 💪",
+        icon: "",
+        description: "Determines whether an X-ray study is normal or abnormal.",
+        link: "/healthcare/mura",
+        endPoint: "http://prakash.ai:2999/analyze"
       }
     ]
   },

@@ -129,6 +129,13 @@ export default {
           this.pictureResult = 'Error'
       }
     },
+    transformResults(response) {
+      if (response == 0) {
+        this.pictureResult = 'Normal';
+      } else {
+        this.pictureResult = 'Abnormal';
+      }
+    },
     async analyzeImage() {
       if (this.selectedFile) {
         let formData = new FormData();
@@ -147,6 +154,9 @@ export default {
           const response = await this.axios.post(this.app.endPoint, formData, headers);
           if (this.app.link == '/vision/bearimages') {
             this.transformBear(response.data.result);
+          } else if (this.app.link == '/healthcare/mura') {
+            console.log('response is', response)
+            this.transformResults(response.data.result);
           } else {
             console.log('response is', response);
             if (response.data.result) {

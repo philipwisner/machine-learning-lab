@@ -76,7 +76,7 @@ h3 {
   }
 }
 h1 {
-  margin-top: -25px;
+  margin-top: -10px;
 }
 .app-list-container {
   margin-top: 50px;
