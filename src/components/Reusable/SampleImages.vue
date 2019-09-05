@@ -1,6 +1,6 @@
 <template>
   <div class="sample-images">
-    <h3>Sample Images</h3>
+    <!--<h3>Sample Images</h3>-->
     <div class="sample-images-container">
       <div class="image-container" :key="image.$index" v-for="image in selectedImages" :style="{ backgroundImage: 'url(' + image.path + ')' }" @click="setSelectedFile(image)"></div>
     </div>
@@ -32,14 +32,14 @@ h3 {
   margin-top: 15px;
 }
 .sample-images-container {
-  margin: 10px 0 20px 0;
+  margin: 20px 0 20px 0;
   display: flex;
 }
 .image-container {
   cursor: pointer;
   width: 70px;
   height: 70px;
-  margin-right:10px;
+  margin-right: 10px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
