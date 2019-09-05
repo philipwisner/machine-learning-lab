@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Welcome :reasons="reasons"/>
+    <Welcome :reasons="reasons" :members="members"/>
   </div>
 </template>
 
@@ -14,7 +14,8 @@ export default {
     Welcome
   },
   props: {
-    reasons: Array
+    reasons: Array,
+    members: Array,
   }
 }
 </script>
