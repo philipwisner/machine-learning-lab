@@ -2,7 +2,7 @@
   <div class="child-app">
     <h3>{{app.name}} <img v-if="app.icon" :src="app.icon" alt="icon" class="app-icon"></h3>
     <p class="description">{{app.description}}
-    <SampleImages :selectedImages="selectedImages" v-if="selectedImages.length > 0"/>
+    <SampleImages v-on:image-selected="setSelectedImage" :selectedImages="selectedImages" v-if="selectedImages.length > 0"/>
     <div class="image-upload">
       <p class="upload-image-header">Upload Image</p>
       <label for="pic">Choose a file</label>
@@ -12,9 +12,15 @@
       <div v-if="!picturePreview" class="dummy-image"></div>
       <img id="output-image" />
     </div>
-    <div class="results-container">
+    <div class="results-container" :style="{ height: app.resultsHeight }">
       <p class="result-header">RESULTS</p>
       <p class="results">{{pictureResult}}</p>
+      <div class="prediction-container" v-if="predictions">
+        <div class="predictions" :key="prediction.$index" v-for="prediction in predictions" >
+          <span class="category">{{prediction.class}}</span> -
+          <span class="value">{{formatPercentage(prediction.prob)}}%</span>
+        </div>
+      </div>
     </div>
     <button @click="analyzeImage" v-if="selectedFile">Analyze</button>
     <p class="error" v-if="error">{{error}}</p>
@@ -43,6 +49,7 @@ export default {
       imageSetName: '',
       selectedImages: [],
       pictureResult: "None",
+      predictions: null,
       picturePreview: false,
       selectedFile: null,
       analyzing: false,
@@ -52,13 +59,24 @@ export default {
   methods: {
     imageUploaded(event) {
       this.error = null;
+      var output = document.getElementById("output-image");
       var reader = new FileReader();
       reader.onload = function() {
-        var output = document.getElementById("output-image");
         output.src = reader.result;
       };
       reader.readAsDataURL(event.target.files[0]);
       this.selectedFile = event.target.files[0];
+      console.log('selected File', this.selectedFile);
+      this.picturePreview = true;
+    },
+    setSelectedImage(image) {
+      this.error = null;
+      var reader = new FileReader();
+      var output = document.getElementById("output-image");
+      output.src = image.path;
+      this.selectedFile = image.path;
+
+      //this.selectedFile = image.path;
       console.log('selected File', this.selectedFile);
       this.picturePreview = true;
     },
@@ -81,14 +99,30 @@ export default {
       if (this.selectedFile) {
         let formData = new FormData();
         formData.append('file', this.selectedFile)
+        console.log('selectedFile', this.selectedFile);
         try {
           this.pictureResult = '...';
+          this.predictions = null;
           console.log(this.app.endPoint);
-          const response = await this.axios.post(this.app.endPoint, formData, {'Content-Type': '*' });
+          let headers = {
+            headers: {
+              'Accept': '*/*'
+            }
+          }
+          const response = await this.axios.post(this.app.endPoint, formData, headers);
           if (this.app.link == '/vision/bearimages') {
             this.transformBear(response.data.result);
           } else {
-            this.pictureResult = response.data.result;
+            console.log('response is', response);
+            if (response.data.result) {
+              this.pictureResult = response.data.result
+            } else {
+              this.predictions = response.data.predictions.sort((a,b) => {
+                return b.prob - a.prob
+              });
+              this.pictureResult = this.predictions[0].class;
+
+            }
           }
           this.analyzing = false;
         } catch (error) {
@@ -98,6 +132,9 @@ export default {
       } else {
         this.error = 'Please select a file'
       }
+    },
+    formatPercentage(percentage) {
+      return Math.round(percentage * 100);
     }
   },
   mounted() {
@@ -139,6 +176,11 @@ label {
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
   }
 }
+.predictions {
+  .category {
+    text-transform: capitalize;
+  }
+}
 .child-app {
   margin-top: 20px;
 }
@@ -168,7 +210,9 @@ label {
 }
 .results-container {
   margin: 40px 0;
-  height: 60px;
+}
+.long-container {
+  height: 120px;
 }
 .result-header {
   color: #bfbfbf;
