@@ -14,7 +14,7 @@
           </router-link>
         </div>
       </div>
-      <router-view class="app-outlet"></router-view>
+      <router-view class="app-outlet" :category="category"></router-view>
     </div>
   </div>
 </template>
