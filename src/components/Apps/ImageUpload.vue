@@ -2,18 +2,25 @@
   <div class="child-app">
     <h3>{{app.name}} <img v-if="app.icon" :src="app.icon" alt="icon" class="app-icon"></h3>
     <p class="description">{{app.description}}
-    <SampleImages v-on:image-selected="setSelectedImage" :selectedImages="selectedImages" v-if="selectedImages.length > 0"/>
+    <!--<SampleImages v-on:image-selected="setSelectedImage" :selectedImages="selectedImages" v-if="selectedImages.length > 0"/>-->
     <div class="image-upload">
       <p class="upload-image-header">Upload Image</p>
       <label for="pic">Choose a file</label>
       <input type="file" name="pic" id="pic" accept="image/*" @change="imageUploaded" />
     </div>
     <div class="image-preview">
+      <!--<vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions"></vue-dropzone>-->
       <div v-if="!picturePreview" class="dummy-image"></div>
       <img id="output-image" />
     </div>
     <div class="results-container" :style="{ height: app.resultsHeight }">
       <p class="result-header">RESULTS</p>
+      <!--
+      <div class="loading-dots" v-if="loadingResults">
+        <span class="dot one">.</span>
+        <span class="dot two">.</span>
+        <span class="dot three">.</span>
+      </div>-->
       <p class="results">{{pictureResult}}</p>
       <div class="prediction-container" v-if="predictions">
         <div class="predictions" :key="prediction.$index" v-for="prediction in predictions" >
@@ -22,7 +29,7 @@
         </div>
       </div>
     </div>
-    <button @click="analyzeImage" v-if="selectedFile">Analyze</button>
+    <button @click="analyzeImage" v-if="selectedFile" :style="{background: category.color}">Analyze</button>
     <p class="error" v-if="error">{{error}}</p>
   </div>
 </template>
@@ -31,11 +38,14 @@
 <script>
 import SampleImages from '@/components/Reusable/SampleImages.vue'
 import { filter } from 'minimatch';
+import vue2Dropzone from 'vue2-dropzone'
+import 'vue2-dropzone/dist/vue2Dropzone.min.css'
 
 export default {
   name: "ImageUpload",
   components: {
-    SampleImages
+    SampleImages,
+    vueDropzone: vue2Dropzone,
   },
   props: {
     category: Object,
@@ -49,11 +59,18 @@ export default {
       imageSetName: '',
       selectedImages: [],
       pictureResult: "None",
+      loadingResults: false,
       predictions: null,
       picturePreview: false,
       selectedFile: null,
       analyzing: false,
       error: null,
+      dropzoneOptions: {
+          url: 'https://httpbin.org/post',
+          thumbnailWidth: 300,
+          maxFilesize: 5,
+          headers: { "My-Awesome-Header": "header value" }
+      }
     };
   },
   methods: {
@@ -69,15 +86,32 @@ export default {
       console.log('selected File', this.selectedFile);
       this.picturePreview = true;
     },
+
+    getDataUri(url, callback) {
+        var image = new Image();
+        image.onload = function () {
+            var canvas = document.createElement('canvas');
+            canvas.width = this.naturalWidth; // or 'width' if you want a special/scaled size
+            canvas.height = this.naturalHeight; // or 'height' if you want a special/scaled size
+            canvas.getContext('2d').drawImage(this, 0, 0);
+            callback(canvas.toDataURL('image/jpg').replace(/^data:image\/(png|jpg);base64,/, ''));
+        };
+        image.src = url;
+    },
     setSelectedImage(image) {
       this.error = null;
-      var reader = new FileReader();
       var output = document.getElementById("output-image");
       output.src = image.path;
-      this.selectedFile = image.path;
-
-      //this.selectedFile = image.path;
-      console.log('selected File', this.selectedFile);
+      this.getDataUri(image.path, (dataUri) => {
+        let mime = dataUri.match(/:(.*?);/);
+        let buf = new ArrayBuffer(dataUri);
+        let arr = new Uint8Array(buf);
+        dataUri
+        .split('')
+        .forEach((e,i)=>arr[i]=e.charCodeAt(0));
+        let f = new File([buf], image.name, {type: image.type})
+        this.selectedFile = f;
+      });
       this.picturePreview = true;
     },
     transformBear(response) {
@@ -99,9 +133,10 @@ export default {
       if (this.selectedFile) {
         let formData = new FormData();
         formData.append('file', this.selectedFile)
-        console.log('selectedFile', this.selectedFile);
+        console.log('file', this.selectedFile);
         try {
-          this.pictureResult = '...';
+          this.loadingResults = true;
+          this.pictureResult = '...'
           this.predictions = null;
           console.log(this.app.endPoint);
           let headers = {
@@ -124,10 +159,12 @@ export default {
 
             }
           }
+          this.loadingResults = false;
           this.analyzing = false;
         } catch (error) {
           console.error(error);
           this.error = error;
+          this.loadingResults = false;
         }
       } else {
         this.error = 'Please select a file'
@@ -147,7 +184,7 @@ export default {
     if (filterImages.length > 0) {
       this.selectedImages = filterImages[0].images;
     }
-  }
+  },
 }
 </script>
 
@@ -159,7 +196,7 @@ $background-main: #05386B;
 }
 h3 {
   color: $background-main;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 input {
   display: none;
@@ -176,6 +213,33 @@ label {
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
   }
 }
+.loading-dots {
+  text-align: left;
+  z-index: 5;
+  border: 1px solid red;
+  display: inline;
+  position: relative;
+  top: 0px;
+  .dot {
+    display: inline;
+    margin: 0 3px;
+    font-size: 3.5em;
+    line-height: 10px;
+    font-weight: bold;
+    opacity: 0;
+    animation: showHideDot 2.5s ease-in-out infinite;
+    &.one { animation-delay: 0.2s; }
+    &.two { animation-delay: 0.4s; }
+    &.three { animation-delay: 0.6s; }
+  }
+}
+@keyframes showHideDot {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  60% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
 .predictions {
   .category {
     text-transform: capitalize;
@@ -232,7 +296,7 @@ label {
 button {
   margin-top: 10px;
   color: white;
-  background: #34d671;
+  //background: #34d671;
   border: none;
   border-radius: 3px;
   padding: 8px 25px;
@@ -241,6 +305,5 @@ button {
 }
 button:hover {
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-  background: rgb(61, 245, 131);
 }
 </style>
