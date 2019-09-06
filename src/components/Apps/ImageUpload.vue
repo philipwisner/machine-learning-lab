@@ -129,11 +129,20 @@ export default {
           this.pictureResult = 'Error'
       }
     },
-    transformResults(response) {
-      if (response == 0) {
-        this.pictureResult = 'Normal';
-      } else {
-        this.pictureResult = 'Abnormal';
+    transformResults(response, type) {
+      if (type == 'caps') {
+        if (response == 'PNEUMONIA') {
+          this.pictureResult = response.toLowerCase();
+        } else {
+          this.pictureResult = response;
+        }
+      }
+      if (type == 'number') {
+        if (response == 0) {
+          this.pictureResult = 'Normal';
+        } else {
+          this.pictureResult = 'Abnormal';
+        }
       }
     },
     async analyzeImage() {
@@ -152,23 +161,28 @@ export default {
             }
           }
           const response = await this.axios.post(this.app.endPoint, formData, headers);
-          if (this.app.link == '/vision/bearimages') {
-            this.transformBear(response.data.result);
-          } else if (this.app.link == '/healthcare/mura') {
-            console.log('response is', response)
-            this.transformResults(response.data.result);
-          } else {
-            console.log('response is', response);
-            if (response.data.result) {
-              this.pictureResult = response.data.result
-            } else {
+            switch (this.app.link) {
+              case '/vision/bearimages':
+                this.transformBear(response.data.result);
+                break;
+              case '/healthcare/mura':
+                this.transformResults(response.data.result, 'number');
+                break;
+              case '/healthcare/breastcancer':
+                this.transformResults(response.data.result, 'number');
+                break;
+              case '/healthcare/pneumonia':
+                this.transformResults(response.data.result, 'caps');
+                break;
+              default:
+                this.pictureResult = response.data.result;
+            }
+             if (response.data.predictions) {
               this.predictions = response.data.predictions.sort((a,b) => {
                 return b.prob - a.prob
               });
               this.pictureResult = this.predictions[0].class;
-
             }
-          }
           this.loadingResults = false;
           this.analyzing = false;
         } catch (error) {
