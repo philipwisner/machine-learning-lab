@@ -12,7 +12,7 @@
       <h2>The Team</h2>
       <div class="subcontent-block" :key="member.$index" v-for="member in members">
         <div class="icon-block">
-          <img src="../assets/logo.svg" alt="icon">
+          <img class="photo" :src="member.image" alt="icon">
         </div>
         <div class="info-block">
           <p class="info-header">{{member.name}}</p>
@@ -65,6 +65,9 @@ p {
 .welcome {
   padding: 5%;
 }
+.photo {
+  max-width: 100px;
+}
 .content-block {
   margin-bottom: 30px;
 }
@@ -79,7 +82,7 @@ p {
   align-content: center;
   align-items: center;
   justify-content: center;
-  margin: 30px 0;
+  margin: 30px 0 50px 0;
   padding-left: 20px;
 }
 .icon-block {

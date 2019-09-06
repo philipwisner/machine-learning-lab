@@ -17,7 +17,7 @@ appData.categories = [
           "Upload an image of a teddy bear, black bear or grizzly bear and our model will tell you which one it uploaded.",
         link: "/vision/bearimages",
         endPoint: "http://prakash.ai:3000/analyze",
-        imageSet: "bearImages",
+        imageSet: "",
         accuracy: ""
       },
       {
@@ -27,7 +27,7 @@ appData.categories = [
           "This model was trained by using 500,000 images from IMDB and Wikipedia. This model is still being trained, accuracy is not reliable.",
         link: "/vision/agedetector",
         endPoint: "http://prakash.ai:3001/analyze",
-        imageSet: "ageImages",
+        imageSet: "https://storage.googleapis.com/dicetestmlbucket/Age.zip",
         accuracy: "Not reliable"
       },
       {
@@ -37,7 +37,7 @@ appData.categories = [
           "This model was trained using 100,000 images from 101 classes from Food-101 (ethz.cz). This model currently has 75% accuracy.",
         link: "/vision/foodclassifier",
         endPoint: "http://prakash.ai:2998/api/classify",
-        imageSet: "foodImages",
+        imageSet: "",
         resultsHeight: "120px",
         accuracy: "75%"
       }
@@ -56,13 +56,16 @@ appData.categories = [
     apps: [
       {
         name: "Breast Cancer Detector",
-        icon: "/img/breast-cancer.362569fd.png",
+        icon:
+          "https://storage.googleapis.com/dicetestmlbucket/breast-cancer.png",
         description: "Detects breast cancer based off a mammogram.",
         longDescription:
           "This model was trained using 200,000 images from Breast Histopathology (Kaggle). This model currently has 90% accuracy.",
         link: "/healthcare/breastcancer",
         endPoint: "http://prakash.ai:2992/analyze",
-        accuracy: "90%"
+        accuracy: "90%",
+        imageSet:
+          "https://storage.googleapis.com/dicetestmlbucket/BreastCancer.zip"
       },
       /*
       {
@@ -76,13 +79,14 @@ appData.categories = [
       */
       {
         name: "Malaria Detector",
-        icon: "/img/mosquito.3333bfb6.png",
+        icon: "https://storage.googleapis.com/dicetestmlbucket/mosquito.png",
         description: "Detects malaria based off human tissue images.",
         longDescription:
-          "This model was trained using 38,000 Malaria Cell Images (National Institues of Health. This model currently has 97% accuracy.",
+          "This model was trained using 38,000 Malaria Cell Images (National Institutes of Health. This model currently has 97% accuracy.",
         link: "/healthcare/malaria",
         endPoint: "http://prakash.ai:2994/analyze",
-        accuracy: "97%"
+        accuracy: "97%",
+        imageSet: "https://storage.googleapis.com/dicetestmlbucket/Malaria.zip"
       },
       {
         name: "MURA (Musculoskeletal Radiographs) 💪",
@@ -92,18 +96,22 @@ appData.categories = [
           "This model was trained using 40,000 Bone X-Ray DL Competition (Stanford). This model currently has 80.5% accuracy.",
         link: "/healthcare/mura",
         endPoint: "http://prakash.ai:2999/analyze",
-        accuracy: "80.5%"
+        accuracy: "80.5%",
+        imageSet:
+          "https://storage.googleapis.com/dicetestmlbucket/MURA.zip",
       },
       {
         name: "Pneumonia Detector",
-        icon: "/img/lungs.30392727.png",
+        icon: "https://storage.googleapis.com/dicetestmlbucket/lungs.png",
         description:
           "Determines whether a chest X-ray shows signs of pneumonia.",
         longDescription:
           "This model was trained using 6,000 Chest X-rays (Kaggle). This model currently has 97% accuracy.",
         link: "/healthcare/pneumonia",
         endPoint: "http://prakash.ai:2993/analyze",
-        accuracy: "97%"
+        accuracy: "97%",
+        imageSet:
+          "https://storage.googleapis.com/dicetestmlbucket/Pneumonia.zip"
       }
     ]
   },
@@ -165,17 +173,17 @@ appData.members = [
   {
     name: "Prakash Parvateneni",
     title: "",
-    image: "none"
+    image: "https://storage.googleapis.com/dicetestmlbucket/prakash.jpg"
   },
   {
     name: "Philip Wisner",
     title: "",
-    image: "none"
+    image: "https://storage.googleapis.com/dicetestmlbucket/phil.jpg"
   },
   {
     name: "Sam Depretis",
     title: "",
-    image: "none"
+    image: "https://storage.googleapis.com/dicetestmlbucket/sam.jpg"
   }
 ];
 

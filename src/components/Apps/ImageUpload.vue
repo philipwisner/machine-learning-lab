@@ -6,6 +6,9 @@
         <span v-if="app.longDescription">{{app.longDescription}}</span>
         <strong> Uploading irrelevant pictures may return inaccurate results.</strong>
       </p>
+      <a class="download" v-if="app.imageSet" :href="app.imageSet" download>Download ZIP</a>
+    </div>
+    <div>
     </div>
     <!--<SampleImages v-on:image-selected="setSelectedImage" :selectedImages="selectedImages" v-if="selectedImages.length > 0"/>-->
     <div class="image-upload">
@@ -229,6 +232,10 @@ h3 {
 }
 input {
   display: none;
+}
+.download {
+  margin-top: 10px;
+  display: block;
 }
 label {
   cursor: pointer;
