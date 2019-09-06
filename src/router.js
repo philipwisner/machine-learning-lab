@@ -110,6 +110,10 @@ export default new Router({
         {
           path: "mura",
           component: ImageUpload
+        },
+        {
+          path: "pneumonia",
+          component: ImageUpload
         }
       ]
     }

@@ -52,20 +52,22 @@ appData.categories = [
         icon: "/img/breast-cancer.362569fd.png",
         description: "Detects breast cancer based off an image.",
         link: "/healthcare/breastcancer",
-        endPoint: "http://prakash.ai:2997/analyze"
+        endPoint: "http://prakash.ai:2992/analyze"
       },
+      /*
       {
         name: "Melanoma Detector ☀️",
         description: "Detects melanoma based off an image.",
         link: "/healthcare/melanoma",
-        endPoint: "http://prakash.ai:2996/image"
+        endPoint: "http://prakash.ai:2993/image"
       },
+      */
       {
         name: "Malaria Detector",
         icon: "/img/mosquito.3333bfb6.png",
         description: "Detects malaria based off an image.",
         link: "/healthcare/malaria",
-        endPoint: "http://prakash.ai:2995/analyze"
+        endPoint: "http://prakash.ai:2994/analyze"
       },
       {
         name: "MURA (Musculoskeletal Radiographs) 💪",
@@ -73,6 +75,13 @@ appData.categories = [
         description: "Determines whether an X-ray study is normal or abnormal.",
         link: "/healthcare/mura",
         endPoint: "http://prakash.ai:2999/analyze"
+      },
+      {
+        name: "Pneumonia Detector",
+        icon: "/img/lungs.30392727.png",
+        description: "Determines whether an X-ray study is normal or abnormal.",
+        link: "/healthcare/pneumonia",
+        endPoint: "http://prakash.ai:2993/analyze"
       }
     ]
   },
