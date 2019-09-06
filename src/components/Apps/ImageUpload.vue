@@ -1,7 +1,12 @@
 <template>
   <div class="child-app">
     <h3>{{app.name}} <img v-if="app.icon" :src="app.icon" alt="icon" class="app-icon"></h3>
-    <p class="description">{{app.description}}
+    <div class="description-container">
+      <p class="description">{{app.description}}
+        <span v-if="app.longDescription">{{app.longDescription}}</span>
+        <strong> Uploading irrelevant pictures may return inaccurate results.</strong>
+      </p>
+    </div>
     <!--<SampleImages v-on:image-selected="setSelectedImage" :selectedImages="selectedImages" v-if="selectedImages.length > 0"/>-->
     <div class="image-upload">
       <p class="upload-image-header">Upload Image</p>
@@ -272,7 +277,7 @@ label {
 .child-app {
   margin-top: 20px;
 }
-.description {
+.description-container {
   margin-bottom: 30px;
 }
 .image-preview {

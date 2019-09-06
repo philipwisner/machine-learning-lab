@@ -14,25 +14,32 @@ appData.categories = [
       {
         name: "Classify Bear Images 🐻",
         description:
-          "Upload an image of a teddy bear, black bear or grizzly bears and our model will tell you which one it uploaded",
+          "Upload an image of a teddy bear, black bear or grizzly bear and our model will tell you which one it uploaded.",
         link: "/vision/bearimages",
         endPoint: "http://prakash.ai:3000/analyze",
-        imageSet: "bearImages"
+        imageSet: "bearImages",
+        accuracy: ""
       },
       {
         name: "Age Detector 🧓",
         description: "Predicting age using artificial intelligence.",
+        longDescription:
+          "This model was trained by using 500,000 images from IMDB and Wikipedia. This model is still being trained, accuracy is not reliable.",
         link: "/vision/agedetector",
         endPoint: "http://prakash.ai:3001/analyze",
-        imageSet: "ageImages"
+        imageSet: "ageImages",
+        accuracy: "Not reliable"
       },
       {
         name: "Food Classifier 🍔",
         description: "Detects what type of food is in a picture.",
+        longDescription:
+          "This model was trained using 100,000 images from 101 classes from Food-101 (ethz.cz). This model currently has 75% accuracy.",
         link: "/vision/foodclassifier",
         endPoint: "http://prakash.ai:2998/api/classify",
         imageSet: "foodImages",
-        resultsHeight: "120px"
+        resultsHeight: "120px",
+        accuracy: "75%"
       }
     ]
   },
@@ -41,7 +48,7 @@ appData.categories = [
     description:
       "Examples of how Machine Learning is transforming the healthcare industry.",
     longDescription:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sapien quam, efficitur sed nibh tempus, efficitur iaculis lacus. Curabitur ut hendrerit velit. Ut iaculis ligula mauris, ac porttitor tellus vehicula semper. Nam vitae risus lectus. Nam pellentesque sit amet dui sit amet vehicula.",
+      "Healthcare is an industry where certainty is crucial. The growth of Machine Learning in the medical community will allow doctors to make more informed decisions by supplementing their medical expertise with trained models. The more data that is gathered and verified the stronger the prediction power will be. This has the potential to drastically change the way we interact with healthcare. These models are NOT approved for medical diagnosis, they are demos of potential use cases only.",
     link: "/healthcare",
     logo: "Thumb",
     class: "healthcare",
@@ -50,43 +57,58 @@ appData.categories = [
       {
         name: "Breast Cancer Detector",
         icon: "/img/breast-cancer.362569fd.png",
-        description: "Detects breast cancer based off an image.",
+        description: "Detects breast cancer based off a mammogram.",
+        longDescription:
+          "This model was trained using 200,000 images from Breast Histopathology (Kaggle). This model currently has 90% accuracy.",
         link: "/healthcare/breastcancer",
-        endPoint: "http://prakash.ai:2992/analyze"
+        endPoint: "http://prakash.ai:2992/analyze",
+        accuracy: "90%"
       },
       /*
       {
         name: "Melanoma Detector ☀️",
         description: "Detects melanoma based off an image.",
+        longDescription: "This model was trained using 18,000 images from Dermoscopic Pigmented Skin Lesions (Kaggle). This model currently has 96% accuracy",
         link: "/healthcare/melanoma",
-        endPoint: "http://prakash.ai:2993/image"
+        endPoint: "http://prakash.ai:2993/image",
+        accuracy: "",
       },
       */
       {
         name: "Malaria Detector",
         icon: "/img/mosquito.3333bfb6.png",
-        description: "Detects malaria based off an image.",
+        description: "Detects malaria based off human tissue images.",
+        longDescription:
+          "This model was trained using 38,000 Malaria Cell Images (National Institues of Health. This model currently has 97% accuracy.",
         link: "/healthcare/malaria",
-        endPoint: "http://prakash.ai:2994/analyze"
+        endPoint: "http://prakash.ai:2994/analyze",
+        accuracy: "97%"
       },
       {
         name: "MURA (Musculoskeletal Radiographs) 💪",
         icon: "",
         description: "Determines whether an X-ray study is normal or abnormal.",
+        longDescription:
+          "This model was trained using 40,000 Bone X-Ray DL Competition (Stanford). This model currently has 80.5% accuracy.",
         link: "/healthcare/mura",
-        endPoint: "http://prakash.ai:2999/analyze"
+        endPoint: "http://prakash.ai:2999/analyze",
+        accuracy: "80.5%"
       },
       {
         name: "Pneumonia Detector",
         icon: "/img/lungs.30392727.png",
-        description: "Determines whether an X-ray study is normal or abnormal.",
+        description:
+          "Determines whether a chest X-ray shows signs of pneumonia.",
+        longDescription:
+          "This model was trained using 6,000 Chest X-rays (Kaggle). This model currently has 97% accuracy.",
         link: "/healthcare/pneumonia",
-        endPoint: "http://prakash.ai:2993/analyze"
+        endPoint: "http://prakash.ai:2993/analyze",
+        accuracy: "97%"
       }
     ]
   },
   {
-    name: "NLP/NLU",
+    name: "NLP/NLU - COMING SOON",
     fullName: "Natural Language Processing/Understanding",
     description:
       "Allows computers to understand, analyze, manipulate and potentially generate human language.",
@@ -99,7 +121,7 @@ appData.categories = [
     apps: []
   },
   {
-    name: "GAN",
+    name: "GAN - COMING SOON",
     fullName: "General Adversarial Network",
     description:
       "Two neural networks compete with each other to become more accurate in their predictions.",
@@ -112,7 +134,7 @@ appData.categories = [
     apps: []
   },
   {
-    name: "Tabular",
+    name: "Tabular - COMING SOON",
     description: "Train models using traditional table based data sets.",
     longDescription:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sapien quam, efficitur sed nibh tempus, efficitur iaculis lacus. Curabitur ut hendrerit velit. Ut iaculis ligula mauris, ac porttitor tellus vehicula semper. Nam vitae risus lectus. Nam pellentesque sit amet dui sit amet vehicula.",

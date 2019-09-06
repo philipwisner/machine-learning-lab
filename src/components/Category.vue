@@ -16,8 +16,16 @@ export default {
       if (this.$route.path !== route) {
         this.$router.push(route);
       }
+    },
+    checkPath(route) {
+      console.log(route);
+      if (route == 'gan') {
+        return true;
+      } else {
+        return false;
     }
   }
+}
 }
 </script>
 
