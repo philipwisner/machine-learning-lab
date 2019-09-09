@@ -35,6 +35,12 @@ $dark-font: #2c3e50;
 $light-font: #7f8c8d;
 $border-color: #BFBFBF;
 
+/*
+@font-face {
+  font-family: "Avenir";
+  src: url("./assets/fonts/Avenir.ttc")format("ttc");
+}*/
+
 * {
   margin: 0;
 }

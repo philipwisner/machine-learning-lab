@@ -45,15 +45,16 @@
 
 <script>
 import SampleImages from '@/components/Reusable/SampleImages.vue'
-import { filter } from 'minimatch';
+/*
 import vue2Dropzone from 'vue2-dropzone'
 import 'vue2-dropzone/dist/vue2Dropzone.min.css'
+*/
 
 export default {
   name: "ImageUpload",
   components: {
     SampleImages,
-    vueDropzone: vue2Dropzone,
+    /*vueDropzone: vue2Dropzone,*/
   },
   props: {
     category: Object,
@@ -73,12 +74,14 @@ export default {
       selectedFile: null,
       analyzing: false,
       error: null,
+      /*
       dropzoneOptions: {
           url: 'https://httpbin.org/post',
           thumbnailWidth: 300,
           maxFilesize: 5,
           headers: { "My-Awesome-Header": "header value" }
       }
+      */
     };
   },
   methods: {
